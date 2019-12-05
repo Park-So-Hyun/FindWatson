@@ -31,6 +31,31 @@ color: #a6a6a680;
 #article{
 min-height: 720px;
 }
+
+ .title:link{
+              text-decoration: none;
+              color: #084480; 
+              }
+              .title:visited{
+              color: black;  text-decoration: none;
+              }
+              .title:hover{
+              font-weight:700;
+              text-decoration: none;
+              color: #084480;
+              }
+
+ .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }    
 </style>
 </head>
 <body>
@@ -50,8 +75,8 @@ min-height: 720px;
 						<hr>
 						<div class="row">
 							<form action="${pageContext.request.contextPath}/login.member" method=post class="col-12 p-0">
-							<div class="col-12 m-1 text-center"><input type=text id=id name=id placeholder="아이디"></div>
-							<div class="col-12 m-1 text-center"><input type=password id=pw name=pw placeholder="비밀번호"></div>
+							<div class="col-12 m-1 text-center"><input type=text id=id name=id placeholder="ID"></div>
+							<div class="col-12 m-1 text-center"><input type=password id=pw name=pw placeholder="PW"></div>
 							<div class="col-12 mt-4 p-0 text-center">
 								<button type=button id= tologin class="btn btn-outline-secondary">로그인</button>
 								<button type=button id="signUp" class="btn btn-outline-secondary">회원가입</button>
@@ -60,7 +85,7 @@ min-height: 720px;
 							</form>
 						</div>	
 						<div class=row>
-							<div class="col-12 mt-4 text-center"><a href="idFind.jsp">아이디 찾기</a> / <a href="pwFind.jsp">비밀번호 찾기</a></div>
+							<div class="col-12 mt-4 text-center"><a href="idFind.jsp" class=title>아이디 찾기</a> / <a href="pwFind.jsp" class=title>비밀번호 찾기</a></div>
 						</div>															
 					</div>
 				</div>

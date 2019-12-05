@@ -21,11 +21,12 @@ border:none;
 text-align: left !important;
 }
 #boardTitle{
-border-top: 2px solid black;
-border-bottom: 2px solid black;
+border-top: 1px solid #084480;
+
+background-color:#f0f4ff ;
 }
 #boardCon{
-border-top: 1px solid gray;
+border-top: 1px solid #084480;
 }
 #boardPage{
 border-top: 1px solid gray;
@@ -36,6 +37,43 @@ width: 100%;
 }
 .search-box>*{width: 100%;}
 
+ .header{
+         
+            font-weight:700;
+            font-size:35px;
+            color : #084480;
+          
+                }
+
+
+ .title:link{
+              text-decoration: none;
+              color: #084480; 
+              }
+              .title:visited{
+              color: black;  text-decoration: none;
+              }
+              .title:hover{
+              font-weight:700;
+              text-decoration: none;
+              color: #084480;
+              }
+ 
+ .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }    
+#HInsert{
+padding-left:10px;
+padding-right:10px;
+}
 </style>		
 </head>
 <body>
@@ -54,7 +92,7 @@ width: 100%;
 				<div class="row">
 					<div id="article-middle" class="col-12 mt-2">
 						<div class="row mb-3 p-1 text-center">
-							<div id="board-top" class="col-12 m-0"><strong>병원 목록</strong></div>							
+							<div id="board-top" class="col-12 m-0 header">병원 목록</div>							
 						</div>
 						<hr>
 						<div class="row line m-0 pt-1 pb-1" id=boardTitle>
@@ -67,7 +105,7 @@ width: 100%;
 						<c:forEach items="${list}" var="list">
 							<div class="row line m-0 pt-1 pb-1" id=boardCon>
 								<div class="col-1">${list.seq}</div>
-								<div class="col-4 col-lg-4"><a href="${pageContext.request.contextPath}/hosptInfoDetailView.admin?seq=${list.seq}">${list.hosptName}</a></div>								
+								<div class="col-4 col-lg-4"><a href="${pageContext.request.contextPath}/hosptInfoDetailView.admin?seq=${list.seq}" class=title>${list.hosptName}</a></div>								
 								<div class="col-3 col-lg-3 "> ${list.phone}</div>
 								<div class="col-4 col-lg-4 ">${list.date} </div>
 							</div>
@@ -91,14 +129,14 @@ width: 100%;
                                         <option value="">제목</option>
                                     </select>
                                 </div>
-                                <div class="search-box col-auto col-sm-6 p-1">
+                                <div class="search-box col-auto col-sm-8 p-1">
                                     <input type="text" class="" id="search" name="search" value="">
                                 </div>
-                                <div class="search-box col-auto col-sm-2 p-1">
+                                <div class="search-box col-auto col-sm-1 p-1">
                                     <button class="btn btn-sm btn-outline-secondary">검색</button>
                                 </div>
-                                <div class="write-box col-auto col-sm-2 text-center p-1">
-                                    <button id="HInsert" class="btn btn-sm btn-outline-secondary">등록하기</button>
+                                <div class="write-box col-auto col-sm-1 text-center p-1">
+                                    <button id="HInsert" class="btn btn-sm btn-outline-secondary" >&nbsp; 등록하기  &nbsp;</button>
                                 </div>
                             </div>
 						

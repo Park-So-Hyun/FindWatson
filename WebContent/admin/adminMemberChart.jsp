@@ -17,12 +17,28 @@
    
 
 	<style>
-	#boardTitle{
-border-top: 2px solid black;
-border-bottom: 2px solid black;
-}
+
 .line{
 border:none;
+}
+#board-top{
+         
+            font-weight:700;
+            font-size:35px;
+            color : #084480;
+          
+                }
+#boardTitle{
+border-top: 1px solid #084480;
+
+background-color: #f0f4ff;
+}
+canvas{
+margin-top:50px;
+margin-bottom:50px;
+}
+#boardCon{
+border-top: 1px solid #084480;
 }
 </style>
 </head>
@@ -49,9 +65,9 @@ border:none;
             <!-- 회원 통계 -->
             	
             	 <div class="row line m-0 pt-1 pb-1 " id=boardTitle>
-            	<div class="col-12  text-center">회원 통계</div>
+            	<div class="col-12  text-center" id=boardTitle2>회원 통계</div>
             </div>
-            	 <canvas id="memberChart"></canvas>
+            	 <canvas id="memberChart" class=chart></canvas>
             	<script>
             	   var ctx = document.getElementById('memberChart');
             	   var myChart = new Chart(ctx, {

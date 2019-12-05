@@ -356,7 +356,7 @@ public class AdminController extends HttpServlet {
 			} else if(cmd.contentEquals("/hosptInfoInsert.admin")) { //병원 정보 등록
 				String repositoryName = "hospitalImg";
 				String uploadPath = request.getServletContext().getRealPath("/" + repositoryName);
-
+				System.out.println(uploadPath);
 				File uploadFilePath = new File(uploadPath);
 				if(!uploadFilePath.exists()) {
 					uploadFilePath.mkdir();
