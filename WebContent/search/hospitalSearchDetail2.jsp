@@ -290,7 +290,6 @@ red
 
 				</div>
 
-<<<<<<< HEAD
   					<div class = row>
                         <div class = "col-12  col-md-3 col-lg-5 col-xl-6">
                             <img src = "${contents.img}" class="rounded mx-auto d-block" style="border-radius: 10px;" width="300px" height="300px" >
@@ -360,11 +359,7 @@ red
                             </div> 
                             
                         </div>
-                    </div>
-                    
-		
-=======
->>>>>>> 0e2bc9c13db75e8e5015b54d7ea2a31dab4ed4c8
+                    </div>              
 
 				<div class=row>
 					<div class="col-12  col-md-3 col-lg-5 col-xl-6">
