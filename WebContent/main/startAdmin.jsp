@@ -39,11 +39,11 @@ color: #a6a6a680;
 					<div class="col-12"><img src="../imgs/findWatson.png" id="logoImg"></div>
 					
 					<div class="col-12 mt-4">
-					<form action="${pageContext.request.contextPath}/login.admin" method="post">
+					<form action="${pageContext.request.contextPath}/login.admin" id=frm method="post">
 					
 						<div class="col-12 mb-3 center" id="article">
-							<div class="col-12 m-1"><input type=text placeholder="아이디" name=id></div>
-							<div class="col-12 m-1"><input type=text placeholder="비밀번호" name=pw></div>
+							<div class="col-12 m-1"><input type=text placeholder="아이디" name=id required></div>
+							<div class="col-12 m-1"><input type=text placeholder="비밀번호" name=pw required></div>
 							<div class="col-12 mt-4 p-0 text-center"><button class="btn btn-outline-secondary">로그인</button></div>
 						</div>
 					

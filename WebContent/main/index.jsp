@@ -127,25 +127,29 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
                         </ol>
                         <div class="carousel-inner" style="width: 100%; margin: auto">
                             <div class="carousel-item active">
-                                <img src="imgs/animal/%EC%88%98%EB%8B%AC.jpg" class="d-block w-100">
+                                <img src="imgs/animal/%EA%B3%A0%EC%8A%B4%EB%8F%84%EC%B9%98.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;">
                             </div>
                             <div class="carousel-item">
-                                <img src="imgs/animal/%EC%88%98%EB%8B%AC.jpg" class="d-block w-100">
+                                <img src="imgs/animal/%EC%88%98%EB%8B%AC.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;">
                             </div>
                             <div class="carousel-item">
-                                <img src="imgs/animal/%EC%88%98%EB%8B%AC.jpg" class="d-block w-100"> 
+                                <img src="imgs/animal/%ED%86%A0%EB%81%BC.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;"> 
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span> 
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                            <div class="carousel-item">
+                                <img src="imgs/animal/%EB%B1%81%EC%83%88.png" class="rounded mx-auto d-block" style="border-radius: 10px;"> 
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imgs/animal/%EC%95%B5%EB%AC%B4%EC%83%88.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;"> 
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imgs/animal/%EC%82%AC%EB%A7%89%EC%97%AC%EC%9A%B0.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;"> 
+                            </div>
                         </div>
                     </div>
                 </div>

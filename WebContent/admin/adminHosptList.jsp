@@ -115,7 +115,7 @@
             </div>
             <script>
             	$("#HInsert").on("click",function(){
-            		location.href="${pageContext.request.contextPath}/hospitalInsert.admin";
+            		location.href="${pageContext.request.contextPath}/admin/adminHosptInsert.jsp";
             	});
             </script>
 </body>
