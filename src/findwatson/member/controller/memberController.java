@@ -3,6 +3,8 @@ package findwatson.member.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,12 +50,21 @@ public class memberController extends HttpServlet {
 			System.out.println("id : " + id + "/ pw : " + pw);
 			String redirectPage = request.getParameter("returnPage");
 			System.out.println("returnpage경로 : " + redirectPage);
+			
 			try {
 				boolean result = dao.loginOk(id, pw);
 
 				if(result) {
 					if(redirectPage != null) {
-						request.setAttribute("redirectPage", redirectPage);
+						Pattern p = Pattern.compile("\\.member");
+						Matcher m = p.matcher(redirectPage);
+						
+						if(m.find()) {
+							//.member로 들어온경우
+							request.setAttribute("redirectPage", null);
+						}else {
+							request.setAttribute("redirectPage", redirectPage);
+						}						
 					}
 					request.getSession().setAttribute("loginInfo",id);
 					//아이피 주소 membertable에 업데이트
@@ -314,6 +325,7 @@ public class memberController extends HttpServlet {
 				int phone = Integer.parseInt(request.getParameter("phone"));
 				boolean list = dao.pwFind(name, id, birth, email, phone);
 				if(list) {
+					request.setAttribute("id", id);
 					request.getRequestDispatcher("member/viewPwFind.jsp").forward(request, response);
 				}
 			} catch (Exception e) {
@@ -325,15 +337,11 @@ public class memberController extends HttpServlet {
 			try {
 				String id = request.getParameter("id");
 				String pw = request.getParameter("pw");
-				System.out.println("아무거나");
+				System.out.println(id + ":" + pw);
 				int list = dao.pwFindGet(id, pw);
-				if(list > 0) {
-					request.getRequestDispatcher("member/login.jsp").forward(request, response);
-				}
-				else {
-					System.out.println("DB에 없는 정보");
-					response.sendRedirect("/FindWatson/member/noPwFind.jsp");
-				}
+				request.setAttribute("result", list);
+				request.getRequestDispatcher("member/noPwFind.jsp").forward(request, response);
+	
 
 			} catch (Exception e) {
 				e.printStackTrace();

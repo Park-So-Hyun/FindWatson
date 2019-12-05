@@ -27,9 +27,7 @@ public class MainController extends HttpServlet {
 		String URI = request.getRequestURI(); 
 		String ctxpath = request.getContextPath(); 
 		String cmd = URI.substring(ctxpath.length()); 
-		String ipAddr = request.getRemoteAddr();
-		System.out.println("컨트롤러 : " + ipAddr);
-		
+		String ipAddr = request.getRemoteAddr();		
 		
 		try {
 			if(cmd.contentEquals("/toMain.main")) {
@@ -50,11 +48,7 @@ public class MainController extends HttpServlet {
 					List<NoticeDTO> noticeList = new ArrayList<>();
 					noticeList = bdao.getMainNotice();
 					request.setAttribute("noticeList", noticeList);
-					
-					for(NoticeDTO tmp:noticeList) {
-						System.out.println(tmp.getSeq());
-					}
-					
+										
 					//2. 자유게시판 (최근5개)
 					List<BoardDTO> freeList = new ArrayList<>();
 					freeList = bdao.getMainFree();

@@ -15,13 +15,11 @@
 				alert("로그인 성공");	
 				var redirectPage = "${redirectPage}";
 				
-				if(redirectPage != null){
-					if(redirectPage == "http://localhost:8080/FindWatson/signUp.member"){
-						location.href = "${pageContext.request.contextPath}/toMain.main";
-					}else{
-						$(location).attr("href", redirectPage);
+				if(redirectPage != null){	
+					if(redirectPage != "http://localhost:8080/FindWatson/main/error.jsp"){
+						$(location).attr("href", redirectPage);	
 					}
-					
+					location.href = "${pageContext.request.contextPath}/toMain.main";
 				}else{
 					location.href = "${pageContext.request.contextPath}/toMain.main";
 				}
