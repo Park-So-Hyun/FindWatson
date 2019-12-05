@@ -5,44 +5,38 @@
 <head>
 <meta charset="UTF-8">
 <title>찾아줘 왓슨!</title>
-<%--부트스트랩 --%>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet"
-   href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script
    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<%--썸머노트 --%>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
   <link rel="stylesheet" href="../resources/css/mainStyle.css">
 <style>
-
-.noneExist{
-display:none;
-}
-  #category{width: 100%; height: 100%;}
-            .search-box>*{width: 100%;}
-            .write-box>*{width: 100%;}
-            #article, .line{
-                border: 0.5px solid lightgray;
-            }
+	.noneExist{display:none;}
+	#category{width: 100%; height: 100%;}
+	.search-box>*{width: 100%;}
+	.write-box>*{width: 100%;}
+	#article, .line{border: 0.5px solid lightgray;}
 </style>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/communityQuestionWrite.bo" method="post" id=frm>
-
-   <div class="container">
+<div class="container col-12">
       <jsp:include page="../standard/headerMember.jsp" /> 
       <!--            -->
-      <div class="row">
+      <div class="row mt-2">
+<div class="col d-none d-sm-block"></div>
+<div class="contents col-12 col-sm-6">
+    <div class="row">
          <div class="col-12 mb-3" id="article">
             <div class="row">
                <div id="article-middle" class="col-12 mt-2">
-                  <div class="row mb-3 p-1 text-center">
+                  <div class="row mb-2 p-1 text-center">
                      <h3 id="board-top" class="col-auto col-sm-4 m-0">질문게시판</h3>
                      <span class="col-auto col-sm-8 mt-2">반려동물에 대해 질문하는 게시판
                         입니다.</span>
@@ -50,7 +44,7 @@ display:none;
                   <div class="row">
                      <div class="col-2 p-1">
                      <input class=noneExist name=header value=질문>
-                        <select name="animalHeader">
+                        <select class="space form-control" name="animalHeader">
                            <option value="새">새</option>
                            <option value="물고기">물고기</option>
                            <option value="햄스터">햄스터</option>
@@ -62,14 +56,14 @@ display:none;
                         </select>
                      </div>
                      <div class="col-10 p-1">
-                        <input type="text" class="" id="questionTitle" name="questionTitle">
+                        <input type="text" class="space form-control" id="questionTitle" name="questionTitle">
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-12 p-1">
                         <!-- 썸머노트 -->
                         <textarea id = "summernote"></textarea><br>
-                     <textarea id=snInput class=noneExist name=content></textarea>
+                        <textarea id=snInput class="noneExist" name=content></textarea>
                      </div>
                   </div>
                   <div class="row mb-2">
@@ -82,6 +76,9 @@ display:none;
             </div>
          </div>
       </div>
+</div>
+<div class="col d-none d-sm-block"></div>
+</div>
       <!--            -->
       <jsp:include page="../standard/footer.jsp" />  
         </div>
@@ -89,7 +86,8 @@ display:none;
    <script>
    //썸머노트 이미지 업로드
    $("#summernote").summernote({
-      height : 600,
+      height : 400,
+      disableResizeEditor : true,
       tabsize: 2,
       callbacks : {
          onImageUpload : function(files) {
