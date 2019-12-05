@@ -28,6 +28,9 @@ border-top: 1px solid gray;
 .line{
 border:none;
 }
+.full{
+width:100%;
+}
 </style>
 </head>
 <body>
@@ -86,8 +89,8 @@ border:none;
             		var reason = prompt("차단 사유 : ");
             		if(reason == ""){
             			alert("차단사유는 필수 입력 사항입니다.")
-            		}else{
-                		location.href="${pageContext.request.contextPath}/admin/adminDeleteMember.admin?id=${list.id}&ip=${list.ipAddr}&reason="+reason;
+            		}else if(reason != null){
+            			location.href="${pageContext.request.contextPath}/admin/adminDeleteMember.admin?id=${list.id}&ip=${list.ipAddr}&reason="+reason;
             		}
             	})
             </script>                
@@ -102,32 +105,34 @@ border:none;
                                 </div>
                             </div>
                            
-                            <div class="row">
-                                <div class="col-4">
-                                    <select id="category">
+                               <div class="row">
+                               <div class="col-2">
+                                    <select id="category" name="category" class=full>
                                         <option value="">아이디</option>
                                     </select>
                                 </div>
                               
-                                <div class="search-box col-6">
-                                    <input type="text" class="" id="search" name="search" value="">
+                                 <div class="search-box col-8">
+                                    <input type="text" class="full" id="search" name="search" value="">
                                 </div>
-                                <div class="search-box col-2">
-                                    <button class="btn btn-sm btn-outline-secondary">검색</button>
+                                 <div class="search-box col-2">
+                                    <button class="btn btn-sm btn-outline-secondary full">검색</button>
                                 </div>
-                               
+                               </div>
+                               </div>
+                               </div>
                                </form>
+                               </div>
                                 <script>
         	$('.btn btn-sm btn-outline-secondary').on('click',function(){
         		$('form').submit();
         	})
         </script>
                             </div>
-
+</div>
                         </div>
                     </div>
-                </div>
-            </div>
+                
             
                           
             <!--            -->

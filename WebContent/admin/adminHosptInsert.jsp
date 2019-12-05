@@ -5,25 +5,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>찾아줘 왓슨!</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>찾아줘! 왓슨</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900&display=swap&subset=korean" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminBoard.css">
+
 <style>
-/*div {border: 1px solid black}*/
 #imgCon {
 	width: 300px;
 	height: 300px;
 }
+
+
+
+
 
 #image_preview {
 	display: none;
@@ -32,95 +33,125 @@
 #imgRemove {
 	color: black;
 }
+input[type=text]{
+border:none;
+border:1px solid gray;
+margin-top:2px;
+margin-bottom:2px;
+width:100%;
+}
+.inputLabel{
+background-color:#a6a6a630;
+}
 </style>
 </head>
 <body>
-	<div class="container">
-		<jsp:include page="../standard/headerAdmin.jsp" />
-		<!--            -->
-		<div class="row">
-			<div class="col-12 mb-3" id="article">
+	<!-- container -->
+	<div class="container col-12">
+	
+	<!-- 헤더 -->
+	<jsp:include page="../standard/headerAdmin.jsp" />   
+	     
+	<div class="row mt-2">
+	  <div class="col d-none d-sm-block"></div>      
+	        <!-- 중심내용 -->
+	  
+		
+				<div class="container col-12 col-sm-6">
 				<div class="row">
-					<div id="article-middle" class="col-12 mt-2">
+					<div id="article-middle" class="col-12 mt-2">						
 						<div class="row mb-3 p-1 text-center">
-							<h3 id="board-top" class="col-auto col-sm-4 m-0">병원 정보 등록</h3>
-							<span class="col-auto col-sm-8 mt-2"> <!-- 코멘트를 뭐라 적어야할지 모르겠... -->
-							</span>
+							<div id="board-top" class="col-12 m-0"><strong>병원 등록하기</strong></div>							
 						</div>
-						<form
-							action="${pageContext.request.contextPath}/hosptInfoInsert.admin"
-							method="post" id="frm" enctype="multipart/form-data">
-							<div class="row line">
-								<div class="col-12">
-									병원이름 <input type="text" id="name" name=name>
-								</div>
-								<br>
-								<div class="col-12">
-									우편번호 <input type="text" id="postcode" name=postcode
-										placeholder="우편번호" readonly>
-									<button id=addressBtn type="button"
-										onclick="sample4_execDaumPostcode()">찾기</button>
-								</div>
-								<div class="col-12">
-									주소1 <input type="text" id="address1" name=address1
-										placeholder="주소1" readonly>
-								</div>
-								<div class="col-12">
-									주소2 <input type=text name=address2 id=address2
-										placeholder="주소2">
-								</div>
-								<div class="col-12">
-									전화번호 <input type=text id=phone name=phone placeholder='전화번호'>
-								</div>
-								<div class="col-12">
-									홈페이지 주소 <input type=text id=homepage name=homepage
-										placeholder='홈페이지 주소'>
-								</div>
-								<div class=col-12>진료과목</div>
-								<div class=col-12>
-									<input type="checkbox" name=medicalAnimal value=새> 새 <input
-										type="checkbox" name=medicalAnimal value=물고기> 물고기 <input
-										type="checkbox" name=medicalAnimal value=햄스터> 햄스터 <input
-										type="checkbox" name=medicalAnimal value=토끼> 토끼 <input
-										type="checkbox" name=medicalAnimal value=고슴도치> 고슴도치 <input
-										type="checkbox" name=medicalAnimal value=파충류> 파충류 <input
-										type="checkbox" name=medicalAnimal value=곤충류> 곤충류 <input
-										type="checkbox" name=medicalAnimal value=기타> 기타
-								</div>
-								<div class=col-12>진료시간</div>
-								<div class=col-12>
-									<input type="checkbox" name=openTime value=주간진료> 주간진료 <input
-										type="checkbox" name=openTime value=야간응급진료> 야간응급진료 <input
-										type="checkbox" name=openTime value=24시간진료> 24시간진료
-								</div>
-								<div class=col-12>
-									<label for="image">사진 : </label> <input type=file id=image
-										name="image">
-									<div id="image_preview" class="text-center">
-										<img src="#" class="col-12 mb-2" id="imgCon" /> <br /> <a
-											id="imgRemove" href="#">이미지 지우기</a>
-									</div>
-								</div>
+						<hr>
+						<form action="${pageContext.request.contextPath}/hosptInfoInsert.admin" method="post" id="frm" enctype="multipart/form-data">
+						<div class="row mb-4 p-2">
+							<div class="col-12 col-md-3 text-center inputLabel">병원 이름</div>
+							<div class="col-12 col-md-9"><input type="text" id="name" name=name></div>
+						</div>
+						<div class="row mb-4 p-2">
+							<div class="col-12 col-md-3 text-center inputLabel">우편번호</div>
+							<div class="col-12 col-md-9">
+							<div class="row">
+							<div class=col-12>
+							<input type="text" id="postcode" name=postcode readonly style="width:80%" onclick="sample4_execDaumPostcode()">
+							<button type=button onclick="sample4_execDaumPostcode()" class="btn btn-sm btn-outline-secondary">찾기</button>
 							</div>
+							<div class=col-12>
+							<input type="text" id="address1" name=address1 readonly>
+							<input type="text" id="address2" name=address2>
+							</div>
+							</div>
+							</div>
+						</div>
+						<div class="row mb-4 p-2">
+							<div class="col-12 col-md-3 text-center inputLabel">전화번호</div>
+							<div class="col-12 col-md-9"><input type="text" id="phone" name=phone></div>
+						</div>
+						<div class="row mb-4 p-2">
+							<div class="col-12 col-md-3 text-center inputLabel">홈페이지 주소</div>
+							<div class="col-12 col-md-9"><input type="text" id="homepage" name=homepage></div>
+						</div>
+						<div class="row mb-4 p-2">
+							<div class="col-12 col-md-3 text-center inputLabel">진료과목</div>
+							<div class="col-12 col-md-9">
+							<div class=row>
+								<div class="col-6 col-md-4"><input type="checkbox" name=medicalAnimal value=새> 새 </div>
+								<div class="col-6 col-md-4"><input type="checkbox" name=medicalAnimal value=물고기> 물고기  </div>
+								<div class="col-6 col-md-4"><input type="checkbox" name=medicalAnimal value=햄스터> 햄스터 </div>
+								<div class="col-6 col-md-4"><input type="checkbox" name=medicalAnimal value=토끼> 토끼 </div>
+								<div class="col-6 col-md-4"><input type="checkbox" name=medicalAnimal value=고슴도치> 고슴도치 </div>
+								<div class="col-6 col-md-4"><input type="checkbox" name=medicalAnimal value=파충류> 파충류 </div>
+								<div class="col-6 col-md-4"><input type="checkbox" name=medicalAnimal value=곤충류> 곤충류 </div>
+								<div class="col-6 col-md-4"><input type="checkbox" name=medicalAnimal value=기타> 기타 </div>
+							</div>
+							</div>
+						</div>
+						<div class="row mb-4 p-2">
+							<div class="col-12 col-md-3 text-center inputLabel">진료시간</div>
+							<div class="col-12 col-md-9">
+							<div class=row>
+								<div class="col-12 col-lg-4"><input type="checkbox" name=openTime value=주간진료> 주간진료 </div>
+								<div class="col-12 col-lg-4"><input type="checkbox" name=openTime value=야간응급진료> 야간응급진료 </div>
+								<div class="col-12 col-lg-4"><input type="checkbox" name=openTime value=24시간진료> 24시간진료 </div>
+							</div>
+							</div>
+						</div>
+						<div class="row mb-4 p-2">
+							<div class="col-12 col-md-3 text-center inputLabel">사진 등록</div>
+							<div class="col-12 col-md-9">
+							<div class=row>
+							<div class="col-12"><input type=file id=image name="image"></div>
+							
+							</div>
+							</div>							
+						</div>	
+						<div class="row mb-4 p-2">
+							<div id="image_preview" class=" col-12 text-center">
+							<img src="#" class="col-12 mb-2" id="imgCon" /> <br /> <a id="imgRemove" href="#">이미지 지우기</a></div>
+						</div>
+																						
+						<div class="row mb-4 p-2">													
+							<div class="col-12 p-1 text-center">
+								<button type=button class="btn btn-sm btn-outline-secondary" id="writeBtn">등록</button>
+								<button type=button class="btn btn-sm btn-outline-secondary" id="returnBtn">취소</button>
+							</div>
+						</div>
 						</form>
-						<div class="row">
-							<div class="write-box col-auto col-6 text-center p-1">
-								<button id="insert" type="button"
-									class="btn btn-sm btn-outline-secondary">등록</button>
-							</div>
-							<div class="write-box col-auto col-6 text-center p-1">
-								<button id="cancel" type="button"
-									class="btn btn-sm btn-outline-secondary">취소</button>
-							</div>
-						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<!--            -->
-		<jsp:include page="../standard/footer.jsp" />
+				</div>
+		
+		
+		 <!-- 중심내용 -->
+	      <div class="col d-none d-sm-block"></div>  
 	</div>
-	<script>
+	
+	<!-- 푸터-->
+	<jsp:include page="../standard/footer.jsp" />
+	</div>
+<!-- container --> 
+<script>
       //우편번호 찾기
       function sample4_execDaumPostcode() {
          new daum.Postcode({
@@ -131,7 +162,7 @@
             }
          }).open();
       }
-      $('#insert').on('click', function() {
+      $('#writeBtn').on('click', function() {
     	 //병원등록 전 빈칸없는지 검사
     	  if($("#name").val()==""){
 				alert("병원이름을 입력하세요!");
@@ -153,6 +184,18 @@
 				alert("전화번호를 입력하세요!");
 				return;
 			}
+    	  if($("#phone").val()!=""){
+				var regex = /^01[0-9]{8,9}$/gm;
+				var phone = $("#phone").val();
+				var result = regex.exec(phone);
+				if (result != null) {
+					
+				}
+				else{
+					alert("전화번호 형식에 맞지않습니다.")
+					return;
+				}
+			}
     	  if($("#homepage").val()==""){
 				alert("홈페이지주소를 입력하세요!");
 				return;
@@ -172,8 +215,11 @@
     	  
          $('#frm').submit();
       });
-      $('#cancel').on('click', function() {
-    	  
+      $('#returnBtn').on('click', function() {
+    	  var result = confirm("등록을 취소하시겠습니까?");
+    	  if(result){
+    		  history.back();
+    	  }
       });
         
     $('#image').on('change', function() {

@@ -364,6 +364,10 @@ public class AdminDAO {
 		if(currentPage == pageTotalCount) {
 			needNext = false;
 		}
+		if(currentPage == 0) {
+			needPrev = false;
+			needNext = false;
+		}
 		StringBuilder sb = new StringBuilder();
 
 		if(needPrev) {sb.append("<a href='adminBanList.admin?cpage="+(currentPage-1)+"'> < </a>");}
@@ -458,6 +462,10 @@ public class AdminDAO {
 			needPrev = false;
 		}
 		if(currentPage == pageTotalCount) {
+			needNext = false;
+		}
+		if(currentPage == 0) {
+			needPrev = false;
 			needNext = false;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -1122,6 +1130,10 @@ public class AdminDAO {
 			needPrev = false;
 		}
 		if(currentPage == pageTotalCount) {
+			needNext = false;
+		}
+		if(currentPage == 0) {
+			needPrev = false;
 			needNext = false;
 		}
 		StringBuilder sb = new StringBuilder();

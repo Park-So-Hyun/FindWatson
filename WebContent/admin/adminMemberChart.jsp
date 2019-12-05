@@ -236,13 +236,14 @@ border:none;
             <!--        -->
            
                        
-       </div>
-   </div>
-   
-   <!-- 푸터-->
-   <jsp:include page="../standard/footer.jsp" />
-   
-   </div>
+      <div class="col d-none d-sm-block"></div>
+	</div>
+	
+	<!-- 푸터-->
+	<jsp:include page="../standard/footer.jsp" />
+	
+	</div>
+
 <!-- container --> 
 </body>
 </html>
