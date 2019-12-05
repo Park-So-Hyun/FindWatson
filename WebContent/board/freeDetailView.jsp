@@ -36,23 +36,23 @@
 	    <div class="col d-none d-sm-block"></div>
 	        
 		<!--  -->
-	<div class="container line col-12 col-sm-8">
-		<div class=row>
-			<div class="col-12 mt-1">
-                <h3>커뮤니티 - 자유</h3>    
-                    <hr>
-                <h4>${dto.title}</h4>
-			</div>
-		</div>
-		<div class=row>
-			<div class=col-8>
-				<h5>${dto.writer}</h5>
-			</div>
-			<div class="col-4 text-right">
-				 <h5 class="d-inline">${dto.getDate()}&emsp;</h5>
-				 <h5 class="d-inline">view.${dto.viewCount}</h5>
-			</div>
-		</div><hr>
+	<div class="container col-12 col-sm-6">
+      <div class=row>
+         <div class=col-12>
+            <h3>커뮤니티 - 자유</h3>
+            <hr>
+            <h4>${dto.title}</h4>
+         </div>
+      </div>
+      <div class=row>
+         <div class=col-6>
+            <h5>${dto.writer}</h5>
+         </div>
+         <div class="col-6">
+            <h5 class="right">${dto.getDate()}&emsp;view.${dto.viewCount}</h5>
+         </div>
+         <div class=col-12><hr></div>
+      </div>
 		<div class=row>
 			<div class=col-12 id=boardContent>${dto.content}</div>
 		</div><hr>
