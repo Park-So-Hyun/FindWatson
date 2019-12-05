@@ -15,6 +15,9 @@
 		<link rel="stylesheet" href="resources/css/mainStyle.css">
 
 <style>
+.line{
+border:none;
+}
 div h{
 text-align: center;
 }

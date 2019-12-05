@@ -49,7 +49,7 @@ min-height: 720px;
 						</div>
 						<hr>
 						<div class="row">
-							<form action="${pageContext.request.contextPath}/login.member" method=post id=frm class="col-12 p-0">
+							<form action="${pageContext.request.contextPath}/login.member" method=post class="col-12 p-0">
 							<div class="col-12 m-1 text-center"><input type=text id=id name=id placeholder="아이디"></div>
 							<div class="col-12 m-1 text-center"><input type=password id=pw name=pw placeholder="비밀번호"></div>
 							<div class="col-12 mt-4 p-0 text-center">
@@ -80,7 +80,15 @@ min-height: 720px;
 	        $("#tologin").on("click",function(){
 	        	var referrer =  document.referrer;
 	        	$("#returnPage").val(referrer);
-	        	$("#frm").submit();
+	        	
+	        	if($("#id").val() == ""){
+	        		alert("아이디를 입력해주세요");
+	        		return false;
+	        	}else if($("#pw").val() == ""){
+	        		alert("비밀번호를 입력해주세요");
+	        		return false;
+	        	}
+	        	$("form").submit();
 	        });
         
         </script>

@@ -15,7 +15,12 @@
 		
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900&display=swap&subset=korean" rel="stylesheet">
         <link rel="stylesheet" href="resources/css/mainStyle.css">
-        
+<style>
+#id{
+border:none;
+margin-bottom:2px;
+}
+</style>        
 
 </head>
 <body>
@@ -102,7 +107,7 @@
                     </div>
                     <div class=row>
                         <div class=col-6><input type="text" id="postcode" name=postcode placeholder="우편번호" readonly value=${ dto.postcode} onclick="sample4_execDaumPostcode()"> </div>
-                        <div class=col-6><button id = addressBtn type="button" onclick="sample4_execDaumPostcode()">찾기</button></div>                      
+                        <div class=col-6><button id = addressBtn type="button" onclick="sample4_execDaumPostcode()" class="btn btn-outline-secondary">찾기</button></div>                      
                     </div>
                     
                     <div class=row>                    

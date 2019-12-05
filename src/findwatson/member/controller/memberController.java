@@ -44,17 +44,16 @@ public class memberController extends HttpServlet {
 
 		if(path.contentEquals("/login.member")) { //로그인
 			String id = request.getParameter("id");
-			System.out.println(id);
 			String pw = request.getParameter("pw");
-			System.out.println(pw);
+			System.out.println("id : " + id + "/ pw : " + pw);
 			String redirectPage = request.getParameter("returnPage");
+			System.out.println("returnpage경로 : " + redirectPage);
 			try {
 				boolean result = dao.loginOk(id, pw);
 
 				if(result) {
 					if(redirectPage != null) {
 						request.setAttribute("redirectPage", redirectPage);
-
 					}
 					request.getSession().setAttribute("loginInfo",id);
 					//아이피 주소 membertable에 업데이트
