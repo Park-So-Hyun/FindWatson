@@ -20,20 +20,80 @@
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="resources/css/mainStyle.css">
-
 <style>
-#category {
-	width: 100%;
-	height: 100%;
+div{
+font-family: 'Noto Sans KR', sans-serif;
 }
 
-.search-box>* {
-	width: 100%;
+.line{
+border:none;
 }
+#board-top {
+text-align: left !important;
+}
+#boardTitle{
+border-top: 1px solid #084480;
 
-.write-box>* {
-	width: 100%;
+background-color: #f0f4ff;
+
 }
+#boardCon{
+border-top: 1px solid #084480;
+}
+#boardPage{
+border-top: 1px solid gray;
+}
+.write-box {
+text-align:right;
+}
+.delBtn{
+background-color:white;
+border:1px solid #f0f4ff;
+
+}
+.delBtn:hover{
+color:#084480;
+background-color:#f0f4ff;
+}
+.delBtn {
+text-align: center;
+}
+.header{
+color:#084480;
+font-weight:700;
+font-size:35px;          
+}
+.date{
+padding-right:0px;
+}
+.count{
+text-align:left;
+padding-left:0px;
+}
+   .title:link{
+              text-decoration: none;
+              color: #084480; 
+              }
+              .title:visited{
+              color: black;  text-decoration: none;
+              }
+              .title:hover{
+              font-weight:700;
+              text-decoration: none;
+              color: #084480;
+              }
+             
+     .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }             
 </style>
 </head>
 <body>
@@ -43,99 +103,98 @@
 		<div class="row mt-2">
 			<!--            -->
 			<div class=container>
+				  <div class=container>
+		<div class="row">
+			<div class="col-12 mb-3" id="article">
 				<div class="row">
-					<div class="col-12 mb-3" id="article">
-						<div class="row">
-							<div id="article-middle" class="col-12 mt-2">
-								<div class="row mb-3 p-1 text-center">
-									<h3 id="board-top" class="col-auto col-sm-4 m-0">질문게시판</h3>
-									<span class="col-auto col-sm-8 mt-2">반려동물에 대해 질문하는 게시판입니다.</span>
-								</div>
-								<div class="row line2">
-									<div class="col-1 d-none d-lg-block"></div>
-									<div class="col-md-1 d-none d-lg-block">말머리</div>
-									<div class="col-md-5 d-none d-lg-block">제목</div>
-									<div class="col-md-2 d-none d-lg-block text-center">작성자</div>
-									<div class="col-md-2 d-none d-lg-block text-center">작성날짜</div>
-									<div class="col-md-1 d-none d-lg-block">조회수</div>
-								</div>
-								<!-- 게시글 목록 -->
-								<c:choose>
-									<c:when test="${list.size() == 0}">게시물이 없습니다.</c:when>
-									<c:when test="${list.size() > 0}">
-										<c:forEach items="${list}" var="dto">
-											<div class="row line2">
-												<div class="order-md-1 col-1 d-none d-md-block">${dto.seq}</div>
-												<div class="col-1 order-1 col-md-1 order-md-2">
-													[${dto.animalHeader}]</div>
-												<div class="col-11 order-2 col-md-5 order-md-3 text-left">
-													<a class=black
-														href='${pageContext.request.contextPath}/questionDetail.bo?seq=${dto.seq}'>${dto.title}</a>
-												</div>
-												<div
-													class="ftsm col-2 order-3 col-md-2 order-md-4 text-center gray">
-													${dto.writer}</div>
-												<div
-													class="ftsm col-2 order-4 col-md-2 order-md-5 text-center gray">
-													${dto.getDate()}</div>
-												<div
-													class="ftsm col-2 order-5 col-md-1 order-md-6 text-center gray">
-													${dto.viewCount}</div>
-											</div>
-										</c:forEach>
-									</c:when>
-								</c:choose>
-								<div class="row">
-									<div class="col-12 text-center">${pageNavi}</div>
-								</div>
-								</div>
-
-
+					<div id="article-middle" class="col-12 mt-2">
+						<div class="row mb-3 p-1 text-center">
+							<div id="board-top" class="header col-12 m-0">질문게시판</div>							
 						</div>
+						
+						<div class="row line m-0 pt-1 pb-1" id=boardTitle>
+							<div class="col-1 d-none d-lg-block">번호</div>
+							<div class="col-2 d-none d-lg-block">말머리</div>							
+							<div class="col-4 d-none d-lg-block">제목</div>
+							<div class="col-2 d-none d-lg-block">작성자</div>
+							<div class="col-2 d-none d-lg-block">작성일</div>
+							<div class="col-1 d-none d-lg-block">조회수</div>
+						</div>
+						<!-- 게시글 목록 -->
+						<c:choose>
+							<c:when test="${list.size() == 0}">게시물이 없습니다.</c:when>
+							<c:when test="${list.size() > 0}">
+								<c:forEach items="${list}" var="dto">
+							<div class="row line m-0 pt-1 pb-1" id=boardCon>
+								<div class="col-1 d-none d-sm-block">${dto.seq}</div>
+								<div class="col-3 col-sm-2">${dto.animalHeader}</div>
+								<div class="col-8 col-sm-4"><a href='${pageContext.request.contextPath}/questionDetail.bo?seq=${dto.seq}' class=title>${dto.title}</a></div>
+								<div class="col-5 col-sm-2">${dto.writer}</div>
+								<div class="date col-4 col-sm-2"> ${dto.getDate()}</div>
+								<div class="count col-3 col-sm-1 text-center d-none d-sm-block">${dto.viewCount} </div>				
+							</div>							
+						</c:forEach>
+							</c:when>
+						</c:choose>
+						
+						
+						
+						<div class="row">
+							<div class="col-12 text-center pt-2 mt-1" id=boardPage>${pageNavi}</div>
+						</div>
+						
 					</div>
 				</div>
-								<!-- -->
-								<!-- 게시물 검색 -->
-								<form action="${pageContext.request.contextPath}/searchOne.bo"
-									method="post">
-									<div class="row mb-2">
-										<div class="col-auto col-sm-2 p-1">
-											<select class="category" name="category">
-												<option value="title">제목</option>
-												<option value="writer">작성자</option>
-												<option value="animalheader">동물 분류</option>
-											</select>
-										</div>
+			</div>
+		</div>
+		</div>
 
-										<div class="search-box col-auto col-sm-6 p-1">
-											<input type="text" class="" id="search" name="keyword">
-										</div>
-
-										<div class="search-box col-auto col-sm-2 p-1">
-											<button class="btn btn-sm btn-outline-secondary">검색</button>
-										</div>
-
-										<div class="write-box col-auto col-sm-2 text-center p-1">
-											<input type=button id="toWriteBtn"
-												class="btn btn-sm btn-outline-secondary" value=글쓰기>
-										</div>
-									</div>
-									<script>
-										$("#toWriteBtn")
-												.on(
-														"click",
-														function() {
-															location.href = "${pageContext.request.contextPath}/board/boardWriteQuestion.jsp";
-														});
-									</script>
-								</form>
-								<!-- 게시물 검색 끝 -->
-							</div>
+				<!-- -->
+				<!-- 게시물 검색 -->
+				<form action="${pageContext.request.contextPath}/searchFree.bo"
+					method="post">
+					<div class="row mb-2">
+						<div class="col-auto col-sm-2 p-1">
+							<select class="category" name="category" style="width:100%;">
+								<option value="title">제목</option>
+								<option value="writer">작성자</option>
+								<option value="animalheader">동물 분류</option>
+							</select>
 						</div>
 
-						<!-- 푸터-->
-						<jsp:include page="../standard/footer.jsp" />
+						<div class="search-box col-auto col-sm-6 p-1">
+							<input type="text" class="" id="search" name="keyword" style="width:100%;">
+						</div>
 
+						<div class="search-box col-auto col-sm-2 p-1">
+							<button class="btn btn-sm btn-outline-secondary" style="width:100%;">검색</button>
+						</div>
+
+						<div class="write-box col-auto col-sm-2 text-center p-1">
+							<input type=button id="toWriteBtn"
+								class="btn btn-sm btn-outline-secondary" style="width:100%;" value=글쓰기>
+						</div>
 					</div>
+					<script>
+						$("#toWriteBtn")
+								.on(
+										"click",
+										function() {
+											location.href = "${pageContext.request.contextPath}/board/boardWriteQuestion.jsp";
+										});
+					</script>
+				</form>
+
+				<!--  게시물 검색 끝 -->
+				<!--            -->
+
+			</div>
+		</div>
+
+		<!-- 푸터-->
+		<jsp:include page="../standard/footer.jsp" />
+
+	</div>
+
 </body>
 </html>

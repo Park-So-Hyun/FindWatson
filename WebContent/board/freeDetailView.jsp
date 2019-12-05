@@ -15,14 +15,34 @@
 <link rel="stylesheet" href="resources/css/mainStyle.css">
 
 <style>
-#category { width: 100%; height: 100%;}
-.search-box>* { width: 100%;}
-.write-box>* {width: 100%;}
-#article, .line {border: 0.5px solid lightgray;}
-#boardContent{min-height: 500px; width:100%;}
-#boardContent>p>img{width:100%;}
-#btnCon{text-align: right;}
-#cmt{resize:none;}
+#board-top {
+text-align: left !important;
+}
+#boardContent{
+min-height:500px;
+}
+.btns {
+text-align:right;
+}
+.header{
+color:#084480;
+font-weight:700;
+font-size:35px;          
+}
+hr{
+background-color:#084480;
+}
+    .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }
 </style>
 </head>
 <body>
@@ -30,21 +50,22 @@
 	<div class="container col-12">
 	
 	<!-- 헤더 -->
-	<jsp:include page="../standard/headerMember.jsp" />   
+	<jsp:include page="../standard/header.jsp" />   
 	     
 	<div class="row mt-2">
 	    <div class="col d-none d-sm-block"></div>
 	        
 		<!--  -->
 	<div class="container col-12 col-sm-6">
-      <div class=row>
-         <div class=col-12>
-            <h3>커뮤니티 - 자유</h3>
-            <hr>
-            <h4>${dto.title}</h4>
-         </div>
-      </div>
-      <div class=row>
+		<div class="row mb-3 p-1 text-center">
+		    <div id="board-top" class="col-12 m-0 header">자유게시판</div>							
+		</div>
+		<div class="row">
+		    <div class="col-12">
+		        <h4>${dto.title}</h4>
+		    </div>
+		</div>
+		<div class=row>
          <div class=col-6>
             <h5>${dto.writer}</h5>
          </div>
@@ -52,14 +73,14 @@
             <h5 class="right">${dto.getDate()}&emsp;view.${dto.viewCount}</h5>
          </div>
          <div class=col-12><hr></div>
-      </div>
+      	</div>
 		<div class=row>
 			<div class=col-12 id=boardContent>${dto.content}</div>
 		</div><hr>
 		<c:choose>
 			<c:when test="${loginInfo == dto.writer}">
 				<div class="row mb-2">
-					<div class="col-12 text-center" id=btnCon>
+					<div class="col-12 text-center btns" id=btnCon>
 						<button id=modify type="button" class="btn btn-outline-secondary">수정</button>
 						<button id=remove type="button" class="btn btn-outline-secondary">삭제</button>
 					</div>
@@ -86,7 +107,7 @@
 			<c:otherwise>
 				<c:forEach items="${list}" var="cmtDto">
 				<div class="row line mb-1">
-					<div class="col-12 mb-1 mt-1">
+					<div class="col-12">
 						<div class="row">
 							<div class=col-6>${cmtDto.writer}</div>
 							<div class=col-6>${cmtDto.getDate()}</div>
@@ -96,7 +117,7 @@
 							<c:choose>
 							<c:when test="${loginInfo == cmtDto.writer}">
 							<div class="col-2 text-center">
-								<button id="cmtRemove${cmtDto.comSeq}" type="button" class="btn-sm btn btn-outline-secondary">삭제</button>
+								<button id="cmtRemove${cmtDto.comSeq}" type="button" class="btn btn-sm btn-outline-secondary">삭제</button>
 							</div>
 							<script>
 							$("#cmtRemove${cmtDto.comSeq}").on("click",function(){
@@ -118,10 +139,10 @@
 			<div class="col-12 center">${pageNavi}</div>
 		</div>
 		<div class="row mb-2">
-			<div class="col-12 mb-1">
+			<div class="col-12">
 				<textarea class="form-control" id=cmt placeholder="댓글을 입력해 주세요"></textarea>
 			</div>
-			<div class="col-12 align-self-center text-center">
+			<div class="col-12 align-self-center text-right mt-1">
 				<button id=cmtBtn type="button" class="btn btn-sm btn-outline-secondary">등록</button>
 				<button id=reset type="button" class="btn btn-sm btn-outline-secondary">새로고침</button>
 			</div>
@@ -134,29 +155,20 @@
 					data:{
 						comment : $("#cmt").val(),
 						boardSeq: ${dto.seq}
-					},
+					}
+					,
 					dataType:"json"
 				}).done(function(data){
-					var row = $("<div class=\"row line mb-1\"></div>");
-					var col = $("<div class=\"col-12 mb-1 mt-1\"></div>");
-					
-					var rowWriter = $("<div class=\"row\"></div>");
+					var row = $("<div class=row></div>");
 					var colWriter = $("<div class=col-6></div>");
-					var colDate = $("<div class=col-6></div>");
-					
-					var rowComment = $("<div class=\"row\"></div>");
-					var colComment = $("<div class=col-10></div>");
-					
+					var colDate = $("<div class=\"col-6 right\"></div>");
+					var colComment = $("<div class=col-12></div>");
 					colWriter.append(data.writer);
-					// colDate.append(data.date);
+					//colDate.append(data.date);
 					colComment.append(data.comment);
-					
-					rowWriter.append(colWriter);
-					rowWriter.append(colDate);
-					rowComment.append(colComment);
-					col.append(rowWriter);
-					col.append(rowComment);
-					row.append(col);
+					row.append(colWriter);
+					row.append(colDate);
+					row.append(colComment);
 					
 					$("#cmtCon").append(row);
 					 $("#cmt").val("");
