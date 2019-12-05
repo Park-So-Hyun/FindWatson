@@ -209,8 +209,8 @@ padding-right:0px;}
 				
             <c:forEach items="${list}" var="hospital">
             <div class =row id=result_container>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src = "${hospital.img}" id =hImg >
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="width: 100%; margin: auto">
+                    <img src = "${hospital.img}" class="rounded mx-auto d-block" id =hImg >
                 </div>
                 <div class = "col-12 col-sm-6 col-md-8 col-lg-9">
                      <a href="${pageContext.request.contextPath}/contents.s?seq=${hospital.seq}" id=result_title>${hospital.hosptName}</a>
@@ -239,7 +239,6 @@ padding-right:0px;}
 	
 	<!-- 푸터-->
 	<jsp:include page="../standard/footer.jsp" />
-	
 <!-- container --> 
 </div>
 <script>

@@ -15,6 +15,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mainStyle.css">
 
 <style>
+div{
+font-family: 'Noto Sans KR', sans-serif;
+}
 #board-top {
 text-align: left !important;
 }
@@ -24,6 +27,28 @@ min-height:500px;
 .btns {
 text-align:right;
 }
+#boardTitle{
+border-top: 1px solid #084480;
+
+background-color: #f0f4ff;
+
+}
+.header{
+color:#084480;
+font-weight:700;
+font-size:35px;          
+}
+ .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             } 
 </style>
 </head>
 <body>
@@ -40,7 +65,7 @@ text-align:right;
 				<div class="row">
 					<div id="article-middle" class="col-12 mt-2">
 						<div class="row mb-3 p-1 text-center">
-							<div id="board-top" class="col-12 m-0"><strong>공지사항</strong></div>							
+							<div id="board-top" class="header col-12 m-0"><strong>공지사항</strong></div>							
 						</div>
 						<hr>
 						<div class=row>
