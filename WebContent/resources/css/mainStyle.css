@@ -65,6 +65,7 @@ strong{
 	display: inline-block;
 	width: 100%;
 	text-align: center;
+	background-color:#f0f4ff;
 }
 
 .navbar-nav {
@@ -106,3 +107,28 @@ display:none;
 .full{
 	width:100%:
 }
+.navibar{
+background-color:#f0f4ff;	
+	
+}
+.header_title{
+	         
+            font-weight:700;
+            font-size:35px;
+            color : #084480;
+	
+}
+ .header_title:link{
+              text-decoration: none;
+              color: #084480; 
+              }
+              .header_title:visited{
+              text-decoration: none;
+              }
+              .header_title:hover{
+              font-weight:700;
+              text-decoration: none;
+              color: #084480;
+              }
+
+

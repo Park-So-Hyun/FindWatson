@@ -76,9 +76,7 @@
             background-color:#ff871f;
             border-style:none;
              }
-            .line{
-            border-style:none;
-            }
+            
             #btnn{
             padding:2%;
             margin-top:0px;
@@ -109,11 +107,12 @@ padding-right:0px;}
 <div class="col d-none d-sm-block"></div>
 	<div class="container col-12 col-sm-6">       
             <!--    내용시작        -->
-            <div class="row line mb-2">
+            <div class="row  mb-2">
                 <div id="article-top" class="col-12 mb-1 p-0">
                     <!--여기 이미지  -->
                     <div id="article-logo" class="col-12 p-2">
-                            <div id="article-img">이미지</div>
+                    <img src="../FindWatson_Update/imgs/main/main_up.png" style="width:100%; height:100%;">
+                            <!--  <div id="article-img">이미지</div>-->
                     </div>
                     <!--  -->
                     <div class="col-12 p-1" id="searchTop">
@@ -132,10 +131,10 @@ padding-right:0px;}
                         <!-- 공지사항 -->
                         <div id="article-middle-left" class="col-12 col-sm-6 mb-1 text-center">
                             <div class="row line mb-1">
-                                <div class="col-12 prevealTitle">공지사항</div>
+                                <div class="col-12 prevealTitle line">공지사항</div>
                             </div>
                             <div class="row line">
-                                <div class="col-12 prevealCon">
+                                <div class="col-12 prevealCon line">
                                 <c:choose>
                                 	<c:when test="${noticeList.size() > 0 }">
                                 	<c:forEach items="${noticeList}" var="dto">
@@ -156,10 +155,10 @@ padding-right:0px;}
                          <!-- 자유게시판 -->
                         <div id="article-middle-right" class="col-12 col-sm-6 text-center">
                             <div class="row line mb-1">
-                                <div class="col-12 prevealTitle">자유게시판</div>
+                                <div class="col-12 prevealTitle line">자유게시판</div>
                             </div>
                             <div class="row line">
-                                <div class="col-12 prevealCon">
+                                <div class="col-12 prevealCon line">
                                 <c:choose>
                                 	<c:when test="${freeList.size() > 0 }">
                                 	<c:forEach items="${freeList}" var="dto">
@@ -188,26 +187,25 @@ padding-right:0px;}
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                           
                         </ol>
                         <div class="carousel-inner" style="width: 100%; margin: auto">
                             <div class="carousel-item active">
-                                <img src="imgs/animal/%EA%B3%A0%EC%8A%B4%EB%8F%84%EC%B9%98.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;">
+                                <img src="../FindWatson_Update/imgs/main/main_animal2.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;">
+                            </div>
+                          
+                            <div class="carousel-item">
+                                <img src="../FindWatson_Update/imgs/main/main_donate.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                             <div class="carousel-item">
-                                <img src="imgs/animal/%EC%88%98%EB%8B%AC.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;">
+                                <img src="../FindWatson_Update/imgs/main/main_donate2.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
+                            </div>
+                           
+                            <div class="carousel-item">
+                                <img src="../FindWatson_Update/imgs/main/main_donate4.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                             <div class="carousel-item">
-                                <img src="imgs/animal/%ED%86%A0%EB%81%BC.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;"> 
-                            </div>
-                            <div class="carousel-item">
-                                <img src="imgs/animal/%EB%B1%81%EC%83%88.png" class="rounded mx-auto d-block" style="border-radius: 10px;"> 
-                            </div>
-                            <div class="carousel-item">
-                                <img src="imgs/animal/%EC%95%B5%EB%AC%B4%EC%83%88.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;"> 
-                            </div>
-                            <div class="carousel-item">
-                                <img src="imgs/animal/%EC%82%AC%EB%A7%89%EC%97%AC%EC%9A%B0.jpg" class="rounded mx-auto d-block" style="border-radius: 10px;"> 
+                                <img src="../FindWatson_Update/imgs/main/main_bird.jpg" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                         </div>
                     </div>
@@ -219,9 +217,9 @@ padding-right:0px;}
         <div class=row>
                 <div id="article-botton" class="col-12 mb-3 p-0">
  <form action="${pageContext.request.contextPath}/searchFrom.s" class="col-12 p-0" method="post">
-<div class="col-12 line" id=head_title>동물병원 검색</div>
+<div class="col-12" id=head_title>동물병원 검색</div>
 <div id="area-search" class="col-12">
-<div class="row line">
+<div class="row">
  <label class="col-12 col-sm-2  align-self-center " id=area-label>지역별</label>
 <a class="d-none d-sm-block">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </a>
                             <select name="address1" id="address1" class="col-12 col-sm-4">
@@ -276,7 +274,7 @@ padding-right:0px;}
                             </label>
                         </div>
                         </div>
-                        <div class="row line" id=btnn>
+                        <div class="row" id=btnn>
                         	<button id="searchBtn2" class="col m-0 btn btn-sm btn-outline-secondary">검색</button>
                         </div>
                     </div>
