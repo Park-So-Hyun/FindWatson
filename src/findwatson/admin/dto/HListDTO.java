@@ -159,20 +159,14 @@ public class HListDTO {
 	
 	public boolean equals(Object o) {
 		HListDTO dto = (HListDTO)o;
-		if(hosptName.equals(dto.getHosptName()) && postcode == dto.getPostcode() 
-				&& address1.equals(dto.getAddress1()) && address2.equals(dto.getAddress2()) 
-				&& phone.equals(dto.getPhone()) && homepage.equals(dto.getHomepage()) 
-				&& img.equals(dto.getImg()) && medicalAnimal.equals(dto.getMedicalAnimal()) 
-				&& openTime.equals(dto.getOpenTime())) {
+		if(hosptName.equals(dto.getHosptName())) {
 			return true;
 		}
 		return false;
 	}
 	
 	public int hashCode() {
-		return (hosptName + postcode + address1 + 
-				address2 + phone + homepage + img + medicalAnimal
-				+ openTime).hashCode();
+		return (hosptName).hashCode();
 	}
 	
 	public String getFormedDate() {

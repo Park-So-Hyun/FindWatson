@@ -171,7 +171,7 @@ public class SearchController extends HttpServlet {
 				Set<HListDTO> set = new HashSet<>();
 				for(HListDTO repe : list2){
 					int count = Collections.frequency(list2, repe);
-				
+					System.out.println(count);
 					if(count == arr.length) {
 						set.add(repe);//여기서 중복 병원은 세번씩 들어가니까 list대신 중복 막아주는 set 사용하기
 					
