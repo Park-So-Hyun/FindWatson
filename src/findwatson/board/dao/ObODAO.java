@@ -92,6 +92,10 @@ public class ObODAO {
 		if (currentPage == pageTotalCount) {
 			needNext = false;
 		}
+		if(currentPage == 0) {
+			needPrev = false;
+			needNext = false;
+		}
 		StringBuilder sb = new StringBuilder();
 
 		if (needPrev) {

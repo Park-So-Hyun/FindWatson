@@ -366,7 +366,7 @@ public class AdminController extends HttpServlet {
 				MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF8", new DefaultFileRenamePolicy());
 
 				String name = Configuration.protectXSS(multi.getParameter("name"));
-				int postcode = Integer.parseInt(multi.getParameter("postcode"));
+				String postcode = multi.getParameter("postcode");
 				String address1 = Configuration.protectXSS(multi.getParameter("address1"));
 				String address2 = Configuration.protectXSS(multi.getParameter("address2"));
 				String phone = multi.getParameter("phone");
@@ -410,7 +410,7 @@ public class AdminController extends HttpServlet {
 				MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF8", new DefaultFileRenamePolicy());
 
 				String name = Configuration.protectXSS(multi.getParameter("name"));
-				int postcode = Integer.parseInt(multi.getParameter("postcode"));
+				String postcode = multi.getParameter("postcode");
 				int seq = Integer.parseInt(multi.getParameter("seq"));
 				HListDTO dto = dao.getHListBySeq(seq);
 				String address1 = Configuration.protectXSS(multi.getParameter("address1"));
