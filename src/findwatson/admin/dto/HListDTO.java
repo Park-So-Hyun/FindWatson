@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 public class HListDTO {
 	private int seq;
 	private String hosptName;
-	private int postcode;
+	private String postcode;
 	private String address1;
 	private String address2;
 	private String phone;
@@ -36,7 +36,7 @@ public class HListDTO {
 	      }
 	   }
 	
-	public HListDTO(int seq, String hosptName, int postcode, String address1, String address2, String phone,
+	public HListDTO(int seq, String hosptName, String postcode, String address1, String address2, String phone,
 			String homepage, String img, String medicalAnimal, String openTime, Timestamp registDate, int viewCount) {
 		super();
 		this.seq = seq;
@@ -77,11 +77,11 @@ public class HListDTO {
 		this.hosptName = hosptName;
 	}
 
-	public int getPostcode() {
+	public String getPostcode() {
 		return postcode;
 	}
 
-	public void setPostcode(int postcode) {
+	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
 

@@ -83,7 +83,7 @@ public class HospitalListDAO {
 					
 					int seq = rs.getInt(1);
 					String hosptName = rs.getString(2);
-					int postcode = rs.getInt(3);
+					String postcode = rs.getString(3);
 					String city = rs.getString(4);
 					String gu = rs.getString(5);
 					String phone = rs.getString(6);
@@ -121,7 +121,7 @@ public class HospitalListDAO {
 				if(rs.next()) {
 					int seq = rs.getInt(1);
 					String hosptName = rs.getString(2);
-					int postcode = rs.getInt(3);
+					String postcode = rs.getString(3);
 					String city = rs.getString(4);
 					String gu = rs.getString(5);
 					String phone = rs.getString(6);
@@ -188,7 +188,7 @@ public class HospitalListDAO {
 				while(rs.next()) {
 					int seq = rs.getInt(1);
 					String hosptName = rs.getString(2);
-					int postcode = rs.getInt(3);
+					String postcode = rs.getString(3);
 					String city = rs.getString(4);
 					String gu = rs.getString(5);
 					String phone = rs.getString(6);
@@ -236,7 +236,7 @@ public class HospitalListDAO {
 				while(rs.next()) {
 					int seq = rs.getInt(1);
 					String hosptName = rs.getString(2);
-					int postcode = rs.getInt(3);
+					String postcode = rs.getString(3);
 					String city = rs.getString(4);
 					String gu = rs.getString(5);
 					String phone = rs.getString(6);
