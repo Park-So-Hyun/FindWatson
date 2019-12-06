@@ -34,7 +34,6 @@ public class SearchController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String cmd = requestURI.substring(contextPath.length());
 
-		System.out.println("컨트롤러 : " + cmd);
 
 		try {
 			HospitalListDAO dao = HospitalListDAO.getInstance();
@@ -42,7 +41,7 @@ public class SearchController extends HttpServlet {
 			if(cmd.contentEquals("/selectGu.s")) {
 
 				String city = request.getParameter("city");
-				System.out.println(city);
+
 				List<String> result = dao.selectGu(city);
 
 				response.setContentType("text/html; charset=UTF-8");
@@ -65,14 +64,14 @@ public class SearchController extends HttpServlet {
 
 				if (address1.contentEquals("null") & !(address2.contentEquals("null"))) {
 					address1 = "";
-					System.out.println("1");
+
 				}else if (address2.contentEquals("null") & !(address1.contentEquals("null"))){
 					address2 = "";
-					System.out.println("2");
+				
 				}else if (address1.contentEquals("null") & address2.contentEquals("null")) {
 					address1 = "";
 					address2 = "";
-					System.out.println("3");
+					
 				}else {
 					System.out.println("address 1,2 다 들어있는 경우 ");
 				}
