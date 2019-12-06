@@ -24,6 +24,7 @@ min-height:500px;
 .btns {
 text-align:right;
 }
+#boardContent>p>img{width:100%;}
 </style>
 </head>
 <body>
