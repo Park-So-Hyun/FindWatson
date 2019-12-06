@@ -118,7 +118,7 @@ public class reviewController extends HttpServlet {
 				if(cpageInput != null) {
 					cpage = Integer.parseInt(request.getParameter("cpage"));
 				}
-				String navi = dao.getPageNavi(cpage, hosptListSeq,hosptListSeq);
+				String navi = dao.getPageNavi(cpage, hosptListSeq);
 				request.setAttribute("cpage", cpage);
 				request.setAttribute("navi", navi); 
 				request.setAttribute("hosptListSeq", hosptListSeq);
@@ -149,7 +149,7 @@ public class reviewController extends HttpServlet {
 				if(cpageInput != null) {
 					cpage = Integer.parseInt(request.getParameter("cpage"));
 				}
-				String navi = dao.getPageNavi(cpage, hosptListSeq,hosptListSeq);
+				String navi = dao.getPageNavi(cpage,hosptListSeq);
 				request.setAttribute("cpage", cpage);
 				request.setAttribute("navi", navi); 
 				
@@ -181,7 +181,7 @@ public class reviewController extends HttpServlet {
 				if(cpageInput != null) {
 					cpage = Integer.parseInt(request.getParameter("cpage"));
 				}
-				String navi = dao.getPageNavi(cpage, hosptListSeq,hosptListSeq);
+				String navi = dao.getPageNavi(cpage, hosptListSeq);
 				request.setAttribute("cpage", cpage);
 				request.setAttribute("navi", navi); 
 				
