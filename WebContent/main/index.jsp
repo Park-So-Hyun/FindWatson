@@ -97,6 +97,20 @@
   #result_title:hover {  font-weight:900;}
 #area-label{
 padding-right:0px;}
+
+
+ .a_tag:link{
+              text-decoration: none;
+              color: #084480; 
+              }
+              .a_tag:visited{
+              color: black;  text-decoration: none;
+              }
+              .a_tag:hover{
+              font-weight:700;
+              text-decoration: none;
+              color: #084480;
+              }
         </style>
     </head>
     <body>
@@ -138,7 +152,7 @@ padding-right:0px;}
                                 <c:choose>
                                 	<c:when test="${noticeList.size() > 0 }">
                                 	<c:forEach items="${noticeList}" var="dto">
-                                	<a href="${pageContext.request.contextPath}/noticeDetail.bo?seq=${dto.seq}">${dto.title }</a><br>
+                                	<a href="${pageContext.request.contextPath}/noticeDetail.bo?seq=${dto.seq}" class="a_tag" >${dto.title }</a><br>
                                 	</c:forEach>
                                 	</c:when>                               	
                                 </c:choose> 
@@ -162,7 +176,7 @@ padding-right:0px;}
                                 <c:choose>
                                 	<c:when test="${freeList.size() > 0 }">
                                 	<c:forEach items="${freeList}" var="dto">
-                                	<a href="${pageContext.request.contextPath}/freeDetail.bo?seq=${dto.seq}">[${dto.animalHeader}]&nbsp;${dto.title }</a><br>
+                                	<a href="${pageContext.request.contextPath}/freeDetail.bo?seq=${dto.seq}" class="a_tag">[${dto.animalHeader}]&nbsp;${dto.title }</a><br>
                                 	</c:forEach> 
                                 	</c:when>                               	
                                 </c:choose>
@@ -205,7 +219,7 @@ padding-right:0px;}
                                 <img src="/FindWatson/imgs/main/main_donate4.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                             <div class="carousel-item">
-                                <img src="/FindWatso/imgs/main/main_bird.jpg" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
+                                <img src="/FindWatson/imgs/main/main_bird.jpg" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                         </div>
                     </div>
