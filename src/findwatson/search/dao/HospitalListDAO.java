@@ -93,7 +93,8 @@ public class HospitalListDAO {
 					String openTime = rs.getString(10);
 					Timestamp registDate = rs.getTimestamp(11);
 					int viewCount = rs.getInt(12);
-				
+					medicalAnimal = (medicalAnimal).replace(";",", ");
+					openTime = (openTime).replace(";",", ");
 					HListDTO dto = new HListDTO(seq, hosptName, postcode, city, gu,
 							phone, homepage, img, medicalAnimal, openTime, registDate, viewCount);
 					list.add(dto);
@@ -131,7 +132,8 @@ public class HospitalListDAO {
 					Timestamp registDate = rs.getTimestamp(11);
 					int viewCount = rs.getInt(12);
 
-					medicalAnimal = (medicalAnimal).replace(";",",");
+					medicalAnimal = (medicalAnimal).replace(";",", ");
+					openTime = (openTime).replace(";",", ");
 					dto = new HListDTO(seq, hosptName, postcode, city, gu,
 							phone, homepage, img, medicalAnimal, openTime, registDate, viewCount);
 					
@@ -196,6 +198,7 @@ public class HospitalListDAO {
 					String openTime = rs.getString(10);
 					Timestamp registDate = rs.getTimestamp(11);
 					int viewCount = rs.getInt(12);
+					
 					HListDTO dto = new HListDTO(seq, hosptName, postcode, city, gu,
 							phone, homepage, img, medicalAnimal, openTime, registDate, viewCount);
 					list.add(dto);
@@ -243,6 +246,8 @@ public class HospitalListDAO {
 					String openTime = rs.getString(10);
 					Timestamp registDate = rs.getTimestamp(11);
 					int viewCount = rs.getInt(12);
+					medicalAnimal = (medicalAnimal).replace(";",", ");
+					openTime = (openTime).replace(";",", ");
 					HListDTO dto = new HListDTO(seq, hosptName, postcode, city, gu,
 							phone, homepage, img, medicalAnimal, openTime, registDate, viewCount);
 					list.add(dto);

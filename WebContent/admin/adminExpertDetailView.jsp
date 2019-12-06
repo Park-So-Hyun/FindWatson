@@ -22,6 +22,25 @@ min-height:500px;
 .btns {
 text-align:right;
 }
+.header{
+color:#084480;
+font-weight:700;
+font-size:35px;          
+}
+hr{
+background-color:#084480;
+}
+    .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }
 </style>
 </head>
 <body>
@@ -38,7 +57,7 @@ text-align:right;
 				<div class="row">
 					<div id="article-middle" class="col-12 mt-2">
 						<div class="row mb-3 p-1 text-center">
-							<div id="board-top" class="col-12 m-0"><strong>전문가Q&amp;A</strong></div>							
+							<div id="board-top" class="col-12 m-0 header">전문가Q&amp;A</div>							
 						</div>
 						<hr>
 						<div class=row>

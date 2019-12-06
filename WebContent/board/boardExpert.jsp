@@ -16,6 +16,9 @@
         <link rel="stylesheet" href="resources/css/mainStyle.css">
 
         <style>
+div{
+font-family: 'Noto Sans KR', sans-serif;
+}
             .line{
 border:none;
 }
@@ -23,15 +26,39 @@ border:none;
 text-align: left !important;
 }
 #boardTitle{
-border-top: 2px solid black;
-border-bottom: 2px solid black;
+border-top: 1px solid #084480;
+
+background-color: #f0f4ff;
+
 }
 #boardCon{
-border-top: 1px solid gray;
+border-top: 1px solid #084480;
 }
 #boardPage{
 border-top: 1px solid gray;
 }
+.header{
+color:#084480;
+font-weight:700;
+font-size:35px;          
+}
+.date{
+padding-right:0px;
+}
+.count{
+text-align:left;
+padding-left:0px;
+}
+  .title:link{
+              text-decoration: none;
+              color: #084480; 
+              }
+              .title:visited{
+              color: black;  text-decoration: none;
+              }
+              .title:hover{
+              font-weight:700;
+              }
         </style>
 </head>
 <body>
@@ -50,9 +77,9 @@ border-top: 1px solid gray;
 				<div class="row">
 					<div id="article-middle" class="col-12 mt-2">
 						<div class="row mb-3 p-1 text-center">
-							<div id="board-top" class="col-12 m-0"><strong>전문가 Q&amp;A</strong></div>							
+							<div id="board-top" class="header col-12 m-0">전문가 Q&amp;A</div>							
 						</div>
-						<hr>
+						
 						<div class="row line m-0 pt-1 pb-1" id=boardTitle>
 							<div class="col-1 d-none d-lg-block">번호</div>
 							<div class="col-8 d-none d-lg-block">제목</div>
@@ -66,10 +93,10 @@ border-top: 1px solid gray;
 								<c:forEach items="${list}" var="list">
 							<div class="row line m-0 pt-1 pb-1" id=boardCon>
 								<div class="col-1">${list.seq}</div>
-								<div class="col-10 col-md-6 col-lg-8"><a href='${pageContext.request.contextPath}/expertDetail.bo?seq=${list.seq}'>${list.title}</a></div>
+								<div class="col-10 col-md-6 col-lg-8"><a href='${pageContext.request.contextPath}/expertDetail.bo?seq=${list.seq}' class=title>${list.title}</a></div>
 								
-								<div class="col-6 col-md-2 col-lg-2 ftsm gray"> ${list.formedDate}</div>
-								<div class="col-6 col-md-1 col-lg-1 text-center ftsm gray">${list.viewCount} </div>				
+								<div class="date col-6 col-md-2 col-lg-2 "> ${list.formedDate}</div>
+								<div class="count col-6 col-md-1 col-lg-1 text-center d-none d-md-block">${list.viewCount} </div>				
 							</div>							
 						</c:forEach>
 							</c:when>

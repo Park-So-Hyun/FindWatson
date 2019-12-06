@@ -14,6 +14,9 @@
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900&display=swap&subset=korean" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminBoard.css">
 <style>
+div{
+font-family: 'Noto Sans KR', sans-serif;
+}
 .line{
 border:none;
 }
@@ -21,11 +24,12 @@ border:none;
 text-align: left !important;
 }
 #boardTitle{
-border-top: 2px solid black;
-border-bottom: 2px solid black;
+border-top: 1px solid #084480;
+
+background-color: #f0f4ff;
 }
 #boardCon{
-border-top: 1px solid gray;
+border-top: 1px solid #084480;
 }
 #boardPage{
 border-top: 1px solid gray;
@@ -34,14 +38,51 @@ border-top: 1px solid gray;
 text-align:right;
 }
 .delBtn{
-border:1px solid gray;
+background-color:white;
+border:1px solid #f0f4ff;
+
 }
 .delBtn:hover{
-color:gray;
+color:#084480;
+background-color:#f0f4ff;
 }
 .delBtn {
 text-align: center;
 }
+
+.header{
+color:#084480;
+font-weight:700;
+font-size:35px;          
+}
+.date{
+padding-right:0px;
+}
+.count{
+text-align:left;
+padding-left:0px;
+}
+  .title:link{
+              text-decoration: none;
+              color: #084480; 
+              }
+              .title:visited{
+              color: black;  text-decoration: none;
+              }
+              .title:hover{
+              font-weight:700;
+              }
+               .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }  
 </style>
 </head>
 <body>
@@ -60,7 +101,7 @@ text-align: center;
 				<div class="row">
 					<div id="article-middle" class="col-12 mt-2">
 						<div class="row mb-3 p-1 text-center">
-							<div id="board-top" class="col-12 m-0"><strong>1:1 문의</strong></div>							
+							<div id="board-top" class="header col-12 m-0"><strong>1:1 문의</strong></div>							
 						</div>
 						<hr>
 						<div class="row line m-0 pt-1 pb-1" id=boardTitle>
@@ -93,8 +134,8 @@ text-align: center;
 						
 								<div class="col-3 col-lg-2 text-center order-3 order-sm-3">${list.header }</div>
 								
-								<div class="col-12 col-lg-5 order-1 order-lg-4"><a id="toPost" href="${pageContext.request.contextPath}/adminObODetailView.admin?cpage=${cpage }&seq=${list.seq}">${list.title}</a></div>
-								<div class="col-5 col-lg-2 text-center ftsm gray order-4 order-sm-5">${list.date} </div>
+								<div class="col-12 col-lg-5 order-1 order-lg-4"><a id="toPost" href="${pageContext.request.contextPath}/adminObODetailView.admin?cpage=${cpage }&seq=${list.seq}" class=title>${list.title}</a></div>
+								<div class="date col-5 col-lg-2 text-center  order-4 order-sm-5">${list.date} </div>
 								
 							</div>
 						

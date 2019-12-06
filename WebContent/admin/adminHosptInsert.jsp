@@ -17,7 +17,18 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminBoard.css">
 
 <style>
-div{border:1px solid black;}
+#imgCon {
+	width: 300px;
+	height: 300px;
+}
+
+#image_preview {
+	display: none;
+}
+
+#imgRemove {
+	color: black;
+}
 input[type=text]{
 border:none;
 border:1px solid gray;
@@ -26,8 +37,33 @@ margin-bottom:2px;
 width:100%;
 }
 .inputLabel{
-background-color:#a6a6a630;
+background-color:#f0f4ff;
+   font-weight:700;
+           
+            color : #084480;
 }
+ .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }    
+#find{
+margin-bottom:4px;
+}
+
+.header{
+         
+            font-weight:700;
+            font-size:35px;
+            color : #084480;
+          
+                }
 </style>
 </head>
 <body>
@@ -46,21 +82,21 @@ background-color:#a6a6a630;
 				<div class="row">
 					<div id="article-middle" class="col-12 mt-2">						
 						<div class="row mb-3 p-1 text-center">
-							<div id="board-top" class="col-12 m-0"><strong>병원 등록하기</strong></div>							
+							<div id="board-top" class="col-12 m-0 header">병원 등록하기</div>							
 						</div>
 						<hr>
 						<form action="${pageContext.request.contextPath}/hosptInfoInsert.admin" method="post" id="frm" enctype="multipart/form-data">
-						<div class="row mb-2">
+						<div class="row mb-4 p-2">
 							<div class="col-12 col-md-3 text-center inputLabel">병원 이름</div>
 							<div class="col-12 col-md-9"><input type="text" id="name" name=name></div>
 						</div>
-						<div class="row mb-2">
+						<div class="row mb-4 p-2">
 							<div class="col-12 col-md-3 text-center inputLabel">우편번호</div>
 							<div class="col-12 col-md-9">
 							<div class="row">
 							<div class=col-12>
-							<input type="text" id="postcode" name=postcode readonly style="width:80%">
-							<button type=button onclick="sample4_execDaumPostcode()" class="btn btn-sm btn-outline-secondary">찾기</button>
+							<input type="text" id="postcode" name=postcode readonly style="width:80%" onclick="sample4_execDaumPostcode()">
+							<button type=button onclick="sample4_execDaumPostcode()" class="btn btn-sm btn-outline-secondary" id=find>찾기</button>
 							</div>
 							<div class=col-12>
 							<input type="text" id="address1" name=address1 readonly>
@@ -69,19 +105,15 @@ background-color:#a6a6a630;
 							</div>
 							</div>
 						</div>
-						<div class="row mb-2">
+						<div class="row mb-4 p-2">
 							<div class="col-12 col-md-3 text-center inputLabel">전화번호</div>
 							<div class="col-12 col-md-9"><input type="text" id="phone" name=phone></div>
 						</div>
-						<div class="row mb-2">
-							<div class="col-12 col-md-3 text-center inputLabel">병원 이름</div>
-							<div class="col-12 col-md-9"><input type="text" id="name" name=name></div>
-						</div>
-						<div class="row mb-2">
+						<div class="row mb-4 p-2">
 							<div class="col-12 col-md-3 text-center inputLabel">홈페이지 주소</div>
 							<div class="col-12 col-md-9"><input type="text" id="homepage" name=homepage></div>
 						</div>
-						<div class="row mb-2">
+						<div class="row mb-4 p-2">
 							<div class="col-12 col-md-3 text-center inputLabel">진료과목</div>
 							<div class="col-12 col-md-9">
 							<div class=row>
@@ -96,7 +128,7 @@ background-color:#a6a6a630;
 							</div>
 							</div>
 						</div>
-						<div class="row mb-2">
+						<div class="row mb-4 p-2">
 							<div class="col-12 col-md-3 text-center inputLabel">진료시간</div>
 							<div class="col-12 col-md-9">
 							<div class=row>
@@ -106,24 +138,24 @@ background-color:#a6a6a630;
 							</div>
 							</div>
 						</div>
-						<div class="row mb-2">
+						<div class="row mb-4 p-2">
 							<div class="col-12 col-md-3 text-center inputLabel">사진 등록</div>
 							<div class="col-12 col-md-9">
 							<div class=row>
-							<input type=file id=image name="image">
+							<div class="col-12"><input type=file id=image name="image"></div>
 							
 							</div>
 							</div>							
 						</div>	
-						<div class="row mb-2">
+						<div class="row mb-4 p-2">
 							<div id="image_preview" class=" col-12 text-center">
 							<img src="#" class="col-12 mb-2" id="imgCon" /> <br /> <a id="imgRemove" href="#">이미지 지우기</a></div>
 						</div>
 																						
-						<div class="row mb-2">													
+						<div class="row mb-4 p-2">													
 							<div class="col-12 p-1 text-center">
-								<button class="btn btn-sm btn-outline-secondary" id="writeBtn">등록</button>
-								<button class="btn btn-sm btn-outline-secondary" id="returnBtn">취소</button>
+								<button type=button class="btn btn-sm btn-outline-secondary" id="writeBtn">등록</button>
+								<button type=button class="btn btn-sm btn-outline-secondary" id="returnBtn">취소</button>
 							</div>
 						</div>
 						</form>
@@ -151,7 +183,7 @@ background-color:#a6a6a630;
             }
          }).open();
       }
-      $('#insert').on('click', function() {
+      $('#writeBtn').on('click', function() {
     	 //병원등록 전 빈칸없는지 검사
     	  if($("#name").val()==""){
 				alert("병원이름을 입력하세요!");
@@ -173,18 +205,6 @@ background-color:#a6a6a630;
 				alert("전화번호를 입력하세요!");
 				return;
 			}
-    	  if($("#phone").val()!=""){
-				var regex = /^01[0-9]{8,9}$/gm;
-				var phone = $("#phone").val();
-				var result = regex.exec(phone);
-				if (result != null) {
-					
-				}
-				else{
-					alert("전화번호 형식에 맞지않습니다.")
-					return;
-				}
-			}
     	  if($("#homepage").val()==""){
 				alert("홈페이지주소를 입력하세요!");
 				return;
@@ -204,8 +224,11 @@ background-color:#a6a6a630;
     	  
          $('#frm').submit();
       });
-      $('#cancel').on('click', function() {
-    	  
+      $('#returnBtn').on('click', function() {
+    	  var result = confirm("등록을 취소하시겠습니까?");
+    	  if(result){
+    		  history.back();
+    	  }
       });
         
     $('#image').on('change', function() {

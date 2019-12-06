@@ -15,12 +15,13 @@
       <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900&display=swap&subset=korean" rel="stylesheet">
    
    <style>
-	#boardTitle{
-border-top: 2px solid black;
-border-bottom: 2px solid black;
+#boardTitle{
+border-top: 1px solid #084480;
+
+background-color: #f0f4ff;
 }
 #boardCon{
-border-top: 1px solid gray;
+border-top: 1px solid #084480;
 }
 #boardPage{
 border-top: 1px solid gray;
@@ -28,6 +29,24 @@ border-top: 1px solid gray;
 .line{
 border:none;
 }
+ .header{
+         
+            font-weight:700;
+            font-size:35px;
+            color : #084480;
+          
+                }
+ .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }    
 </style>
 </head>
 <body>
@@ -45,7 +64,7 @@ border:none;
             <div class="row">
             <div id="article-middle" class="col-12 mt-2">
                 <div class="row mb-3 p-1 text-center">
-                    <div id="board-top" class="col-12 m-0 text-left"><strong>차단 IP 조회</strong></div>
+                    <div id="board-top" class="col-12 m-0 text-left header">차단 IP 조회</div>
             </div>
             
             <div class="row line m-0 pt-1 pb-1" id=boardTitle>
