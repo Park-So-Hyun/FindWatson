@@ -111,7 +111,7 @@ padding-right:0px;}
                 <div id="article-top" class="col-12 mb-1 p-0">
                     <!--여기 이미지  -->
                     <div id="article-logo" class="col-12 p-2">
-                    <img src="../FindWatson_Update/imgs/main/main_up.png" style="width:100%; height:100%;">
+                    <img src="/FindWatson/imgs/main/main_up.png" style="width:100%; height:100%;">
                             <!--  <div id="article-img">이미지</div>-->
                     </div>
                     <!--  -->
@@ -191,21 +191,21 @@ padding-right:0px;}
                         </ol>
                         <div class="carousel-inner" style="width: 100%; margin: auto">
                             <div class="carousel-item active">
-                                <img src="../FindWatson_Update/imgs/main/main_animal2.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;">
+                                <img src="/FindWatson/imgs/main/main_animal2.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;">
                             </div>
                           
                             <div class="carousel-item">
-                                <img src="../FindWatson_Update/imgs/main/main_donate.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
+                                <img src="/FindWatson/imgs/main/main_donate.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                             <div class="carousel-item">
-                                <img src="../FindWatson_Update/imgs/main/main_donate2.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
+                                <img src="/FindWatson/imgs/main/main_donate2.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                            
                             <div class="carousel-item">
-                                <img src="../FindWatson_Update/imgs/main/main_donate4.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
+                                <img src="/FindWatson/imgs/main/main_donate4.PNG" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                             <div class="carousel-item">
-                                <img src="../FindWatson_Update/imgs/main/main_bird.jpg" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
+                                <img src="/FindWatso/imgs/main/main_bird.jpg" class="rounded mx-auto d-block" style="border-radius: 10px; width:100%; height:300px;"> 
                             </div>
                         </div>
                     </div>
