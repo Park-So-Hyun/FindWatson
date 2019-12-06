@@ -9,7 +9,7 @@
 </head>
 <body>
 	<script>
-	alert( "차단된 ip주소입니다. (사단 사유 : ${reason})" );
+	alert( "차단된 ip주소입니다. (차단 사유 : ${reason})" );
 	window.open("about:blank","_self").close();
 	</script>
 </body>
