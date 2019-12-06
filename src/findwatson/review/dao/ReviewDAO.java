@@ -214,16 +214,16 @@ public class ReviewDAO {
 				}
 
 		//페이지 네비게이터 출력
-	public String getPageNavi(int currentPage, int hosptReviewSeq,int hosptListSeq)throws Exception{
-		int recordTotalCount = this.getArticleCount(hosptReviewSeq);
+	public String getPageNavi(int currentPage, int hosptListSeq)throws Exception{
+		int recordTotalCount = this.getArticleCount(hosptListSeq);
 		
 		int pageTotalCount  = 0;
 		int adv = recordTotalCount % Configuration.recordCountPerPage;
 		
 		if(adv > 0) {
-			pageTotalCount = adv + 1;
+			pageTotalCount = (recordTotalCount / Configuration.recordCountPerPage) + 1;
 		}else {
-			pageTotalCount = adv;
+			pageTotalCount = (recordTotalCount / Configuration.recordCountPerPage);
 		}
 		
 		if(currentPage < 1) {
