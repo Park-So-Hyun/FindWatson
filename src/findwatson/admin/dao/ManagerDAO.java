@@ -51,7 +51,7 @@ public class ManagerDAO {
 				if(rs.next()) {
 					int seq = rs.getInt(1);
 					String hosptName = rs.getString(2);
-					int postcode = rs.getInt(3);
+					String postcode = rs.getString(3);
 					String city = rs.getString(4);
 					String gu = rs.getString(5);
 					String phone = rs.getString(6);
@@ -89,7 +89,7 @@ public class ManagerDAO {
 				while(rs.next()) {
 					int seq = rs.getInt(1);
 					String hosptName = rs.getString(2);
-					int postcode = rs.getInt(3);
+					String postcode = rs.getString(3);
 					String city = rs.getString(4);
 					String gu = rs.getString(5);
 					String phone = rs.getString(6);
@@ -185,7 +185,7 @@ public class ManagerDAO {
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
 			pstat.setString(1, dto.getHosptName());
-			pstat.setInt(2, dto.getPostcode());
+			pstat.setString(2, dto.getPostcode());
 			pstat.setString(3, dto.getAddress1());
 			pstat.setString(4, dto.getAddress2());
 			pstat.setString(5, dto.getPhone());
@@ -207,7 +207,7 @@ public class ManagerDAO {
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
 			pstat.setString(1, dto.getHosptName());
-			pstat.setInt(2, dto.getPostcode());
+			pstat.setString(2, dto.getPostcode());
 			pstat.setString(3, dto.getAddress1());
 			pstat.setString(3, dto.getAddress2());
 			pstat.setString(4, dto.getPhone());

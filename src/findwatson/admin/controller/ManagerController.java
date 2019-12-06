@@ -76,7 +76,7 @@ public class ManagerController extends HttpServlet {
 				//여기 안씀
 				System.out.println("병원등록 진입 성공");
 				String name = request.getParameter("name");
-				int postcode = Integer.parseInt(request.getParameter("postcode"));
+				String postcode = request.getParameter("postcode");
 				String address1 = request.getParameter("address1");
 				String address2 = request.getParameter("address2");
 				String phone = request.getParameter("phone");
@@ -131,7 +131,7 @@ public class ManagerController extends HttpServlet {
 				MultipartRequest multi = new MultipartRequest(request, uploadPath, maxSize, "UTF8", new DefaultFileRenamePolicy());
 
 				String name = multi.getParameter("name");
-				int postcode = Integer.parseInt(multi.getParameter("postcode"));
+				String postcode = multi.getParameter("postcode");
 				String address1 = multi.getParameter("address1");
 				String address2 = multi.getParameter("address2");
 				String phone = multi.getParameter("phone");
