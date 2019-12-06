@@ -44,7 +44,6 @@ public class reviewController extends HttpServlet {
 		System.out.println("cmd : " + cmd);
 		
 					
-		
 		if(cmd.contentEquals("/imgUpload.re")) {//이미지 업로드
 			String repositoryName = "reviewImg";
 			String uploadPath = request.getServletContext().getRealPath("/" + repositoryName);
