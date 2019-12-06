@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>찾아줘 왓슨!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -157,9 +157,7 @@
 	    
 	<div class="row">
 	    <div class="col d-none d-sm-block"></div>
-	        
-	        
-	         <div class="container">
+	         <div class="container col-12 col-sm-6">
 	  
 	        <!-- 중심내용 -->
 	       <div class = "row">
@@ -174,83 +172,82 @@
                   <hr>
                   </div>
            </div>
+<div class=row>
+					<div class="col-12">
+						<div class="row">
+							<div class="col-12 col-sm-6">
+								<img src="${contents.img}" class="rounded mx-auto d-block"
+								style="border-radius: 10px; width:100%; height:300px;" >
+							</div>
+							<div class="col-12 col-sm-6">
+						<%-- 작은 화면일 경우  --%>
+						<div class="row hosIn1 d-block d-sm-none" id=info_small>
+							<div class=col-12>
+								<div class=row>
+									<div class="col d-block d-md-none">&nbsp; &nbsp;</div>
+								</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">병원 이름</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶ &nbsp; </a>${contents.hosptName}</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">주소</label> 
+									<div class="col-12"><a class="d-inline d-md-none">&nbsp;▶&nbsp;</a>${contents.address1}</div>
+									<div class="col-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${contents.address2}</div>
+								</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">전화번호</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.phone}</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">홈페이지</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp; </a><a
+										href="${contents.homepage}" class=hp_link>${contents.homepage}</a>
+								</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">진료 동물</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp; </a>${contents.medicalAnimal}</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">운영 시간</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.openTime}</div>
 
-                    <div class = row>
-                        <div class = "col-12  col-md-3 col-lg-5 col-xl-6">
-                             <img src = "${contents.img}" class="rounded mx-auto d-block" style="border-radius: 10px;" width="300px" height="300px" >
+							</div>
+						</div>
 
-                        </div>
-                        
-                        <div class = "col-12  col-md-9 col-lg-7 col-xl-6">
-                            
-                            <%-- 작은 화면일 경우  --%>
-                            <div class="row hosIn1 d-block d-sm-none" id=info_small >
-                                <div class =col-12>
-                                <div class = row>
-                                <div class = "col d-block d-md-none">
-                                &nbsp; &nbsp;
-                                </div>
-                                </div>
-                                <div class="row info">
-                                    <label class = "title d-none d-md-block">병원 이름</label>
-                                     <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶  &nbsp; </a>${contents.hosptName}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">주소</label>
-                                       <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.address1} ${contents.address2}</div>
-                                     <div class="row info">
-                                   <label class = "title d-none d-md-block">전화번호</label>
-                                      <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.phone}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">홈페이지</label>
-                                        <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;  </a><a href="${contents.homepage}" class=hp_link>${contents.homepage}</a></div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">진료 동물</label>
-                                      <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp; </a>${contents.medicalAnimal}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">운영 시간</label>
-                                       <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.openTime}</div>
-                              
-                                </div>
-                            </div> 
-                            
-                            <%-- 큰 화면일 경우  --%>
-                            
-                            <div class="row hosIn1 d-none d-sm-block" id=info_big>
-                                <div class =col-12>
-                                <div class = row>
-                                <div class = "col d-block d-md-none">
-                                &nbsp; &nbsp;
-                                </div>
-                                </div>
-                                <div class="row info">
-                                    <label class = "title d-none d-md-block">병원 이름</label>
-                                     <a class="d-block d-md-none">&nbsp; &nbsp; ▶  &nbsp; </a>${contents.hosptName}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">주소</label>
-                                       <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.address1} ${contents.address2}</div>
-                                     <div class="row info">
-                                   <label class = "title d-none d-md-block">전화번호</label>
-                                      <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.phone}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">홈페이지</label>
-                                        <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;  </a><a href="${contents.homepage}" class=hp_link>${contents.homepage}</a></div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">진료 동물</label>
-                                      <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp; </a>${contents.medicalAnimal}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">운영 시간</label>
-                                       <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.openTime}</div>
-                              
-                                </div>
-                            </div> 
-                            
-                               
-                        </div>
-                    </div>
-                    
-                    
-                 
+						<%-- 큰 화면일 경우  --%>
 
+						<div class="row hosIn1 d-none d-sm-block" id=info_big>
+							<div class=col-12>
+								<div class=row>
+									<div class="col d-block d-md-none">&nbsp; &nbsp;</div>
+								</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">병원 이름</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; ▶ &nbsp; </a>${contents.hosptName}</div>
+								<div class="row info mb-1">
+									<label class="title d-none d-md-block mb-0">주소</label>
+									&nbsp;&nbsp;&nbsp;${contents.address1}${contents.address2}
+								</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">전화번호</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.phone}</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">홈페이지</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp; </a><a
+										href="${contents.homepage}" class=hp_link>${contents.homepage}</a>
+								</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">진료 동물</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp; </a>${contents.medicalAnimal}</div>
+								<div class="row info">
+									<label class="title d-none d-md-block">운영 시간</label> <a
+										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.openTime}</div>
+
+							</div>
+						</div>
+
+							</div>
+						</div>
+					</div>
+				</div> 
                     <%--지도, 후기--%>
                     
                     <div class=" row d-none d-md-block">
@@ -273,7 +270,6 @@
                             </div>
                         </div>
 
-
                         <div class = row id="mapBoxS d-block d-md-none">
                             <div class = "col-12" id="mapBox_col">
                                 <br>
@@ -287,11 +283,7 @@
                
                      
                      
-                        </div>
-                      
-	    
-	    
-	    
+			</div>
 	    <div class="col d-none d-sm-block"></div>
 	</div>
 	

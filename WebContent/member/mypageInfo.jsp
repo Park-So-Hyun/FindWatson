@@ -21,11 +21,30 @@ border:none;
 div h{
 text-align: center;
 }
+div{
+font-family: 'Noto Sans KR', sans-serif;
+}
+.header{
+color:#084480;
+font-weight:700;
+font-size:35px;          
+}
+ .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }    
 </style>
 
 </head>
 <body>
-	<div class="container">
+	<div class="container col-12">
 <jsp:include page="../standard/headerMember.jsp" /> 
  
 <div class="row mt-2">
@@ -33,12 +52,17 @@ text-align: center;
 <!--            -->
 	<div class="container col-12">
            <div class=col>
-  		
+           <div class=container>	
+  		<div class="row mb-3 p-1">
+							<div id="board-top" class="header col-12 m-0"><strong>마이페이지</strong></div>							
+						</div>
+					
   		 <div class="row line"> 
                    <div class=col-12>
                    <hr style="border:solid 1px;">  
                    </div>
             </div>
+            
 					<div class =row>
                         <div class= col-12>
                            <div class=row>
@@ -131,9 +155,9 @@ text-align: center;
                    <div class="row line"> 
                    <div class=col-12>
                    <hr style="border:solid 1px;">  
-                   </div>
-            </div>
                    
+            </div>
+                  </div> 
                     <form action="${pageContext.request.contextPath}/InfoModify.member" method="post">
                      <input type=hidden name="id" value=${ dto.id}>
                      <input type=hidden name="pw" value=${ dto.pw}>
@@ -151,7 +175,7 @@ text-align: center;
                     <div>
                      <button type="button" id=modify class="btn btn-outline-secondary">정보수정</button></div>
                     </form>
-
+</div>
             <!--            -->  
                 <div class="col d-none d-sm-block"></div>
 	</div>

@@ -60,7 +60,6 @@ public class AdminController extends HttpServlet {
 		AdminFileDAO fDao = AdminFileDAO.getInstance();
 		PrintWriter pwriter = response.getWriter();
 
-		System.out.println("cmd - " + cmd);
 		try {
 			//관리자 로그인
 			if(cmd.contentEquals("/login.admin")) {
@@ -77,10 +76,9 @@ public class AdminController extends HttpServlet {
 			}else if(cmd.contentEquals("/adminPwModify.admin")) {//관리자 비밀번호 변경
 				String oriPw = request.getParameter("oriPw");
 				String newPw = request.getParameter("newPw");
-				System.out.println(oriPw + " : " + newPw);
 
 				boolean pwCheck = dao.adminPwSameCheck(oriPw); 
-				System.out.println(pwCheck);
+
 				if(pwCheck) { //기존비밀번호와 일치했을때
 					dao.adminInfoPwUpdate(id, newPw);
 					JsonObject jobj = new JsonObject();
@@ -143,7 +141,7 @@ public class AdminController extends HttpServlet {
 			}else if(cmd.contentEquals("/expertWrite.admin")){ //전문가 Q&A 글쓰기
 				String title = Configuration.protectXSS(request.getParameter("boardTitle"));
 				String content = request.getParameter("content");
-				System.out.println(content);
+
 
 				dao.insertToExpert(new ExpertDTO(0, id, title, content, null, 0));
 
@@ -151,7 +149,7 @@ public class AdminController extends HttpServlet {
 			}else if(cmd.contentEquals("/expertWriteImgUpload.admin")) {//전문가 Q&A 글쓰기-이미지 업로드
 				String repositoryName = "expertImg";
 				String uploadPath = request.getServletContext().getRealPath( "/" + repositoryName);
-				System.out.println(uploadPath);
+
 				File uploadFilePath = new File(uploadPath);
 				if(!uploadFilePath.exists()) {
 					uploadFilePath.mkdir();
@@ -162,14 +160,12 @@ public class AdminController extends HttpServlet {
 
 				String fileName = multi.getFilesystemName("expertImg");
 				String oriFileName = multi.getOriginalFileName("expertImg");
-				System.out.println("원래 파일 이름 : " + oriFileName);
-				System.out.println("올린 파일 이름 : " + fileName);
+
 
 				fDao.insertImgToExpert(new AdminFileDTO(0, 0, fileName, oriFileName));
 
 				//서버의 이미지 경로
 				String imgPath = contextPath + "/" + repositoryName + "/" + fileName;
-				System.out.println(imgPath);
 
 				JsonObject jObj = new JsonObject();
 				jObj.addProperty("imgPath", imgPath);
@@ -177,7 +173,7 @@ public class AdminController extends HttpServlet {
 			}else if(cmd.contentEquals("/noticeWrite.admin")) {//공지사항 글쓰기
 				String title = Configuration.protectXSS(request.getParameter("boardTitle"));
 				String content = request.getParameter("content");
-				System.out.println(content);
+
 
 				dao.insertToNotice(new ExpertDTO(0, id, title, content, null, 0));
 
@@ -185,7 +181,7 @@ public class AdminController extends HttpServlet {
 			}else if(cmd.contentEquals("/noticeWriteImgUpload.admin")) {//공지사항 글쓰기 - 이미지 업로드
 				String repositoryName = "noticeImg";
 				String uploadPath = request.getServletContext().getRealPath("/" + repositoryName);
-				System.out.println(uploadPath);
+
 				File uploadFilePath = new File(uploadPath);
 				if(!uploadFilePath.exists()) {
 					uploadFilePath.mkdir();
@@ -195,14 +191,13 @@ public class AdminController extends HttpServlet {
 
 				String fileName = multi.getFilesystemName("noticeImg");
 				String oriFileName = multi.getOriginalFileName("noticeImg");
-				System.out.println("원래 파일 이름 : " + oriFileName);
-				System.out.println("올린 파일 이름 : " + fileName);
+
 
 				fDao.insertImgToNotice(new AdminFileDTO(0, 0, fileName, oriFileName));
 
 				//서버의 이미지 경로
 				String imgPath = contextPath + "/" + repositoryName + "/" + fileName;
-				System.out.println(imgPath);
+
 
 				JsonObject jObj = new JsonObject();
 				jObj.addProperty("imgPath", imgPath);
@@ -242,7 +237,7 @@ public class AdminController extends HttpServlet {
 				request.getRequestDispatcher("admin/adminBoardNotice.jsp").forward(request, response);
 
 			}else if(cmd.contentEquals("/admin/adminSearchNotice.admin")) {//공지사항에서 회원아이디 검색
-				System.out.println("공지사항검색 진입성공");
+
 				String idInput = request.getParameter("search");
 				List<MemberDTO> list = dao.selectById("%"+idInput+"%");
 				request.setAttribute("list", list);
@@ -342,11 +337,11 @@ public class AdminController extends HttpServlet {
 				dao.insertbanIp(idInput, ipAddrInput, reason);
 				int result = dao.deleteMember(idInput);
 				if(result > 0) {
-					System.out.println("아이디 삭제 성공");
+
 					response.sendRedirect(contextPath + "/adminMemberList.admin");
 				}
 			}else if(cmd.contentEquals("/admin/adminSearchMember.admin")) {//회원목록에서 회원아이디 검색
-				System.out.println("회원아이디검색 진입성공");
+
 				String idInput = request.getParameter("search");
 				List<MemberDTO> list = dao.selectById(idInput);
 				request.setAttribute("list", list);
@@ -356,7 +351,7 @@ public class AdminController extends HttpServlet {
 			} else if(cmd.contentEquals("/hosptInfoInsert.admin")) { //병원 정보 등록
 				String repositoryName = "hospitalImg";
 				String uploadPath = request.getServletContext().getRealPath("/" + repositoryName);
-				System.out.println(uploadPath);
+
 				File uploadFilePath = new File(uploadPath);
 				if(!uploadFilePath.exists()) {
 					uploadFilePath.mkdir();
@@ -384,7 +379,7 @@ public class AdminController extends HttpServlet {
 				if(openTime.contentEquals("null")) {
 					openTime = "";
 				}
-				System.out.println("animal : " + openTime);
+
 
 				//System.out.println(uploadPath);
 				//System.out.println(name+"/"+postcode+"/"+address1+"/"+address2+"/"+phone+"/"+homepage+"/"+medicalAnimal.length+"/"+openTime.length+"/"+image);
@@ -392,7 +387,7 @@ public class AdminController extends HttpServlet {
 				HListDTO Hdto = new HListDTO(0,name,postcode,address1,address2,phone,homepage,image,medicalAnimal,openTime,null,0);
 				int result = dao.insertHospitalInfo(Hdto);
 				if(result > 0) {
-					System.out.println("병원 정보 입력 성공");
+
 					response.sendRedirect("hosptInfoList.admin");
 				}
 
@@ -430,7 +425,7 @@ public class AdminController extends HttpServlet {
 				if(openTime.contentEquals("null")) {
 					openTime = "";
 				}
-				System.out.println("animal : " + openTime);
+
 
 				//System.out.println(uploadPath);
 				//System.out.println(name+"/"+postcode+"/"+address1+"/"+address2+"/"+phone+"/"+homepage+"/"+medicalAnimal.length+"/"+openTime.length+"/"+image);
@@ -438,7 +433,7 @@ public class AdminController extends HttpServlet {
 				HListDTO Hdto = new HListDTO(seq,name,postcode,address1,address2,phone,homepage,image,medicalAnimal,openTime,null,dto.getViewCount());
 				int result = dao.updateHospitalInfo(Hdto);
 				if(result > 0) {
-					System.out.println("병원 정보 입력 성공");
+
 					response.sendRedirect("hosptInfoList.admin");
 				}
 
@@ -523,7 +518,7 @@ public class AdminController extends HttpServlet {
 			} else if(cmd.contentEquals("/adminObODetailView.admin")) {
 				int cpage = 1;
 				String page = request.getParameter("cpage");
-				System.out.println(page);
+
 				if(page != null) {
 					cpage = Integer.parseInt(request.getParameter("cpage"));
 				}
@@ -560,7 +555,7 @@ public class AdminController extends HttpServlet {
 			}else if(cmd.contentEquals("/adminMemberChart.admin")) {//회원통계
 
 
-				System.out.println("회원차트 진입성공");
+
 				//회원정보
 				int totalCount = dao.recordMemberListTotalCount();
 				int memberMCount = dao.recordMemberMTotalCount();
@@ -668,7 +663,7 @@ public class AdminController extends HttpServlet {
 				response.sendRedirect(contextPath + "/boardQuestion.admin");
 			}else if(cmd.contentEquals("/expertRemove.admin")) {//전문가 게시판 글삭제
 				int seq = Integer.parseInt(request.getParameter("seq"));
-				System.out.println(seq);
+
 				dao.deleteExpert(seq);
 				response.sendRedirect(contextPath + "/boardExpert.admin");
 			}else if(cmd.contentEquals("/noticeRemove.admin")) {//공지사항 글삭제
@@ -696,7 +691,7 @@ public class AdminController extends HttpServlet {
 				String content = request.getParameter("content");
 				int seq= Integer.parseInt(request.getParameter("seq"));
 				
-				System.out.println(content);
+	
 				dao.updateNotice(seq, title, content);
 				response.sendRedirect(contextPath + "/adminNoticeDetailView.admin?seq="+seq);
 			}else if(cmd.contentEquals("/expertModify.admin")) {//전문가 Q&A 수정 폼으로 이동

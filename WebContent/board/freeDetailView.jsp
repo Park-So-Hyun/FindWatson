@@ -43,6 +43,7 @@ background-color:#084480;
             background-color:#ff871f;
             border-style:none;
              }
+#boardContent>p>img{width:100%;}
 </style>
 </head>
 <body>

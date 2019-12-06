@@ -42,7 +42,7 @@ public class BoardController extends HttpServlet {
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String cmd = requestURI.substring(contextPath.length());
-		System.out.println("컨트롤러 : " + cmd);
+
 
 	 
 	    String id = (String)request.getSession().getAttribute("loginInfo");
@@ -66,7 +66,7 @@ public class BoardController extends HttpServlet {
 
 				request.setAttribute("list", list);
 				request.setAttribute("pageNavi", pageNavi);
-				System.out.println("네비게이터 : "+ pageNavi );
+				
 				request.getRequestDispatcher("board/boardFree.jsp").forward(request, response);
 
 				// 질문게시판 글 목록 출력
@@ -138,7 +138,7 @@ public class BoardController extends HttpServlet {
 			} else if(cmd.contentEquals("/imgUploadQuestion.bo")) {
 				String repositoryName = "boardQuestImgRepository";
 				String uploadPath = request.getServletContext().getRealPath("/" + repositoryName);
-				System.out.println(uploadPath);
+				
 
 		        File uploadFilePath = new File(uploadPath);
 		        if(!uploadFilePath.exists()) {
@@ -150,14 +150,13 @@ public class BoardController extends HttpServlet {
 		         
 		        String fileName = multi.getFilesystemName("comQuestionImg");
 		        String oriFileName = multi.getOriginalFileName("comQuestionImg");
-		        System.out.println("원래 파일 이름 : " + oriFileName);
-		        System.out.println("올린 파일 이름 : " + fileName);
+		        
 				
 		        fDao.insert(new FilesDTO(0, 0, fileName, oriFileName));
 		        
 		        //서버의 이미지 경로
 		        String imgPath = contextPath + "/" + repositoryName + "/" + fileName;
-		        System.out.println(imgPath);
+		        
 		         
 		        JsonObject jObj = new JsonObject();
 		        jObj.addProperty("imgPath", imgPath);
@@ -189,14 +188,13 @@ public class BoardController extends HttpServlet {
 
 				String fileName = multi.getFilesystemName("comFreeImg");
 				String oriFileName = multi.getOriginalFileName("comFreeImg");
-				System.out.println("원래 파일 이름 : " + oriFileName);
-				System.out.println("올린 파일 이름 : " + fileName);
+				
 
 				fDao.insert(new FilesDTO(0, 0, fileName, oriFileName));
 
 				// 서버의 이미지 경로
 				String imgPath = contextPath + "/" + repositoryName + "/" + fileName;
-				System.out.println(imgPath);
+				
 
 				JsonObject jObj = new JsonObject();
 				jObj.addProperty("imgPath", imgPath);
@@ -321,7 +319,7 @@ public class BoardController extends HttpServlet {
 				response.sendRedirect("boardFree.bo");
 			}else if(cmd.contentEquals("/boardModify.bo")) { //게시판 글 수정 눌렀을때 
 				int seq = Integer.parseInt(request.getParameter("seq"));
-				System.out.println(seq);
+				
 				AdminDAO adao = AdminDAO.getInstance();
 				BoardDTO dto = adao.getBoardBySeq2(seq);
 				request.setAttribute("dto", dto);

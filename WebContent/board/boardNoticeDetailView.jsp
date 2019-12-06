@@ -15,6 +15,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mainStyle.css">
 
 <style>
+div{
+font-family: 'Noto Sans KR', sans-serif;
+}
 #board-top {
 text-align: left !important;
 }
@@ -24,6 +27,29 @@ min-height:500px;
 .btns {
 text-align:right;
 }
+#boardContent>p>img{width:100%;}
+#boardTitle{
+border-top: 1px solid #084480;
+
+background-color: #f0f4ff;
+
+}
+.header{
+color:#084480;
+font-weight:700;
+font-size:35px;          
+}
+ .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             } 
 </style>
 </head>
 <body>

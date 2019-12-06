@@ -30,6 +30,7 @@ resize:none;
 .thisline{
 border-bottom:1px solid #a6a6a6;
 }
+#boardContent>p>img{width:100%;}
 </style>
 </head>
 <body>

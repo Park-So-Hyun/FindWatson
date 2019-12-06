@@ -16,6 +16,7 @@
 #boardContent{
 min-height: 500px;
 }
+#boardContent>p>img{width:100%;}
 </style>
 </head>
 <body>
