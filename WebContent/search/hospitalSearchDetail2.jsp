@@ -290,7 +290,6 @@ red
 
 				</div>
 
-<<<<<<< HEAD
   					<div class = row>
                         <div class = "col-12  col-md-3 col-lg-5 col-xl-6">
                             <img src = "${contents.img}" class="rounded mx-auto d-block" style="border-radius: 10px;" width="300px" height="300px" >
@@ -361,86 +360,7 @@ red
                             
                         </div>
                     </div>
-                    
-		
-=======
->>>>>>> 0e2bc9c13db75e8e5015b54d7ea2a31dab4ed4c8
 
-				<div class=row>
-					<div class="col-12  col-md-3 col-lg-5 col-xl-6">
-						 <img src="${contents.img}" id=hosImg name=hosImg>
-						
-					</div>
-
-					<div class="col-12  col-md-9 col-lg-7 col-xl-6">
-
-						<%-- 작은 화면일 경우  --%>
-						<div class="row hosIn1 d-block d-sm-none" id=info_small>
-							<div class=col-12>
-								<div class=row>
-									<div class="col d-block d-md-none">&nbsp; &nbsp;</div>
-								</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">병원 이름</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶ &nbsp; </a>${contents.hosptName}</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">주소</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.address1}
-									${contents.address2}
-								</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">전화번호</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.phone}</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">홈페이지</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp; </a><a
-										href="${contents.homepage}" class=hp_link>${contents.homepage}</a>
-								</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">진료 동물</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp; </a>${contents.medicalAnimal}</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">운영 시간</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.openTime}</div>
-
-							</div>
-						</div>
-
-						<%-- 큰 화면일 경우  --%>
-
-						<div class="row hosIn1 d-none d-sm-block" id=info_big>
-							<div class=col-12>
-								<div class=row>
-									<div class="col d-block d-md-none">&nbsp; &nbsp;</div>
-								</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">병원 이름</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; ▶ &nbsp; </a>${contents.hosptName}</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">주소</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.address1}
-									${contents.address2}
-								</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">전화번호</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.phone}</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">홈페이지</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp; </a><a
-										href="${contents.homepage}" class=hp_link>${contents.homepage}</a>
-								</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">진료 동물</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp; </a>${contents.medicalAnimal}</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">운영 시간</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.openTime}</div>
-
-							</div>
-						</div>
-
-					</div>
-				</div>
 
 
 
