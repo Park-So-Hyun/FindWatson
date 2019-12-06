@@ -15,12 +15,6 @@
 		<link rel="stylesheet" href="resources/css/mainStyle.css">
 		
 		<style>
-            img{
-                width:500px;
-            }
-            #hosImg{
-                width:100%;
-            }
             #head_title{
             margin-top:3%;
             margin-bottom:4%;
@@ -209,10 +203,12 @@ padding-right:0px;}
 				
             <c:forEach items="${list}" var="hospital">
             <div class =row id=result_container>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3" style="width: 100%; margin: auto">
-                    <img src = "${hospital.img}" class="rounded mx-auto d-block" id =hImg >
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <img src = "${hospital.img}" class="rounded mx-auto d-block" style="border-radius: 10px;" width="300px" height="300px" >
+
                 </div>
-                <div class = "col-12 col-sm-6 col-md-8 col-lg-9">
+                <div class = "col-12 col-sm-6 col-md-8">
                      <a href="${pageContext.request.contextPath}/contents.s?seq=${hospital.seq}" id=result_title>${hospital.hosptName}</a>
                   <br>
                         ${hospital.address1} ${hospital.address2}<br>

@@ -37,8 +37,33 @@ margin-bottom:2px;
 width:100%;
 }
 .inputLabel{
-background-color:#a6a6a630;
+background-color:#f0f4ff;
+   font-weight:700;
+           
+            color : #084480;
 }
+ .btn{
+           color:white;
+            background-color:#084480;
+             border-style:none;
+            }
+            
+            .btn:hover{
+               color:black;
+            background-color:#ff871f;
+            border-style:none;
+             }    
+#find{
+margin-bottom:4px;
+}
+
+.header{
+         
+            font-weight:700;
+            font-size:35px;
+            color : #084480;
+          
+                }
 </style>
 </head>
 <body>
@@ -57,7 +82,7 @@ background-color:#a6a6a630;
 				<div class="row">
 					<div id="article-middle" class="col-12 mt-2">						
 						<div class="row mb-3 p-1 text-center">
-							<div id="board-top" class="col-12 m-0"><strong>병원 등록하기</strong></div>							
+							<div id="board-top" class="col-12 m-0 header">병원 등록하기</div>							
 						</div>
 						<hr>
 						<form action="${pageContext.request.contextPath}/hosptInfoInsert.admin" method="post" id="frm" enctype="multipart/form-data">
@@ -71,7 +96,7 @@ background-color:#a6a6a630;
 							<div class="row">
 							<div class=col-12>
 							<input type="text" id="postcode" name=postcode readonly style="width:80%" onclick="sample4_execDaumPostcode()">
-							<button type=button onclick="sample4_execDaumPostcode()" class="btn btn-sm btn-outline-secondary">찾기</button>
+							<button type=button onclick="sample4_execDaumPostcode()" class="btn btn-sm btn-outline-secondary" id=find>찾기</button>
 							</div>
 							<div class=col-12>
 							<input type="text" id="address1" name=address1 readonly>
