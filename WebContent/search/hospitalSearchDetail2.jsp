@@ -154,13 +154,21 @@ hr {
 
 #page
 
+
+
  
+
+
 
 ${
 cpage
 
 
+
+
 	
+
+
 
 
 }
@@ -168,16 +176,28 @@ cpage
 color
 
 
+
+
  
+
+
 
 
 :
 
 
+
+
  
 
 
+
+
 red
+
+
+
+
 
 
 
@@ -290,81 +310,10 @@ red
 
 				</div>
 
-  					<div class = row>
-                        <div class = "col-12  col-md-3 col-lg-5 col-xl-6">
-                            <img src = "${contents.img}" class="rounded mx-auto d-block" style="border-radius: 10px;" width="300px" height="300px" >
-                        </div>
-                        
-                        <div class = "col-12  col-md-9 col-lg-7 col-xl-6">
-                            
-                            <%-- 작은 화면일 경우  --%>
-                            <div class="row hosIn1 d-block d-sm-none" id=info_small >
-                                <div class =col-12>
-                                <div class = row>
-                                <div class = "col d-block d-md-none">
-                                &nbsp; &nbsp;
-                                </div>
-                                </div>
-                                <div class="row info">
-                                    <label class = "title d-none d-md-block">병원 이름</label>
-                                     <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶  &nbsp; </a>${contents.hosptName}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">주소</label>
-                                       <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.address1} ${contents.address2}</div>
-                                     <div class="row info">
-                                   <label class = "title d-none d-md-block">전화번호</label>
-                                      <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.phone}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">홈페이지</label>
-                                        <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;  </a><a href="${contents.homepage}" class=hp_link>${contents.homepage}</a></div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">진료 동물</label>
-                                      <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp; </a>${contents.medicalAnimal}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">운영 시간</label>
-                                       <a class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.openTime}</div>
-                              
-                                </div>
-                            </div> 
-                            
-                            <%-- 큰 화면일 경우  --%>
-                            
-                            <div class="row hosIn1 d-none d-sm-block" id=info_big>
-                                <div class =col-12>
-                                <div class = row>
-                                <div class = "col d-block d-md-none">
-                                &nbsp; &nbsp;
-                                </div>
-                                </div>
-                                <div class="row info">
-                                    <label class = "title d-none d-md-block">병원 이름</label>
-                                     <a class="d-block d-md-none">&nbsp; &nbsp; ▶  &nbsp; </a>${contents.hosptName}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">주소</label>
-                                       <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.address1} ${contents.address2}</div>
-                                     <div class="row info">
-                                   <label class = "title d-none d-md-block">전화번호</label>
-                                      <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.phone}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">홈페이지</label>
-                                        <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;  </a><a href="${contents.homepage}" class=hp_link>${contents.homepage}</a></div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">진료 동물</label>
-                                      <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp; </a>${contents.medicalAnimal}</div>
-                                     <div class="row info">
-                                    <label class = "title d-none d-md-block">운영 시간</label>
-                                       <a class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.openTime}</div>
-                              
-                                </div>
-                            </div> 
-                            
-                        </div>
-                    </div>              
-
 				<div class=row>
 					<div class="col-12  col-md-3 col-lg-5 col-xl-6">
-						 <img src="${contents.img}" id=hosImg name=hosImg>
-						
+						<img src="${contents.img}" class="rounded mx-auto d-block"
+							style="border-radius: 10px;" width="300px" height="300px">
 					</div>
 
 					<div class="col-12  col-md-9 col-lg-7 col-xl-6">
@@ -436,103 +385,103 @@ red
 
 					</div>
 				</div>
+			</div>
 
 
-
-				<%--지도, 후기--%>
-				<div class=" row d-none d-md-block">
-					<div class=col-12>
-						<div>&nbsp; &nbsp; &nbsp;</div>
-						<label>Total. </label> ${contents.viewCount}
-					</div>
+			<%--지도, 후기--%>
+			<div class=" row d-none d-md-block">
+				<div class=col-12>
+					<div>&nbsp; &nbsp; &nbsp;</div>
+					<label>Total. </label> ${contents.viewCount}
 				</div>
+			</div>
 
-				<div class=row>
-					<div class=col-12>
+			<div class=row>
+				<div class=col-12>
 
-						<div class="btn-group" role="group" aria-label="Basic example">
+					<div class="btn-group" role="group" aria-label="Basic example">
 
-							<button type="button" class="btn btn-secondary" id=btnMap>지도</button>
-							<button type="button" class="btn  btn-secondary" id=btnReview>후기</button>
-							<button type="button" class="btn btn-secondary" id="btnModify">정보
-								수정 제안</button>
-						</div>
-						<hr>
+						<button type="button" class="btn btn-secondary" id=btnMap>지도</button>
+						<button type="button" class="btn  btn-secondary" id=btnReview>후기</button>
+						<button type="button" class="btn btn-secondary" id="btnModify">정보
+							수정 제안</button>
 					</div>
+					<hr>
 				</div>
+			</div>
 
 
 
 
-				<div class=row>
-					<div class=col-12 id=array>
-						리뷰(${reviewList.size()}) | <a
-							href="${pageContext.request.contextPath}/hospitalSearchDetail2ByScore.re?seq=${contents.seq}"
-							id=scoreRange class=range>별점순 |</a> <a
-							href="${pageContext.request.contextPath}/hospitalSearchDetail2.re?seq=${contents.seq}"
-							class=range>최신순 |</a> <a
-							href="${pageContext.request.contextPath}/hospitalSearchDetail2ByLike.re?seq=${contents.seq}"
-							id=defaultRange class=range>좋아요순</a>
-						<hr>
+			<div class=row>
+				<div class=col-12 id=array>
+					리뷰(${reviewList.size()}) | <a
+						href="${pageContext.request.contextPath}/hospitalSearchDetail2ByScore.re?seq=${contents.seq}"
+						id=scoreRange class=range>별점순 |</a> <a
+						href="${pageContext.request.contextPath}/hospitalSearchDetail2.re?seq=${contents.seq}"
+						class=range>최신순 |</a> <a
+						href="${pageContext.request.contextPath}/hospitalSearchDetail2ByLike.re?seq=${contents.seq}"
+						id=defaultRange class=range>좋아요순</a>
+					<hr>
+				</div>
+			</div>
+
+
+			<c:choose>
+				<c:when test="${reviewList.size() == 0}">
+					<div class=row>
+						<div class=col-12>게시글이 존재하지 않습니다.</div>
 					</div>
-				</div>
+				</c:when>
 
-
-				<c:choose>
-					<c:when test="${reviewList.size() == 0}">
+				<c:otherwise>
+					<c:forEach items="${reviewList}" var="dto">
+						<%-------------------------------------------------------------------------------------------------- --%>
 						<div class=row>
-							<div class=col-12>게시글이 존재하지 않습니다.</div>
-						</div>
-					</c:when>
-
-					<c:otherwise>
-						<c:forEach items="${reviewList}" var="dto">
-							<%-------------------------------------------------------------------------------------------------- --%>
-							<div class=row>
-								<div class="col-4 col-md-2 p-0">
-									<div class="starCon shield">
-										<span class="fa fa-star" id="star1t${dto.seq}"
-											onclick="addt${dto.seq}(this,1)"></span> <span
-											class="fa fa-star" id="star2t${dto.seq}"
-											onclick="addt${dto.seq}(this,2)"></span> <span
-											class="fa fa-star" id="star3t${dto.seq}"
-											onclick="addt${dto.seq}(this,3)"></span> <span
-											class="fa fa-star" id="star4t${dto.seq}"
-											onclick="addt${dto.seq}(this,4)"></span> <span
-											class="fa fa-star" id="star5t${dto.seq}"
-											onclick="addt${dto.seq}(this,5)"></span>
-									</div>
-								</div>
-								<div class="col-6 col-sm-5 col-md-4 col-lg-5">
-									<p class="m-0">
-										<button class="btn btn-secondary" type="button"
-											data-toggle="collapse" data-target="#collapse${dto.seq}"
-											aria-expanded="false" aria-controls="collapseExample">
-											${dto.title}</button>
-									</p>
-								</div>
-								<div class="col-3 col-md-2 d-none d-md-block">${dto.formedDate}</div>
-								<div class="col-2 d-none d-md-block">${dto.writer}</div>
-								<div class="col-1 col-sm-2 col-lg-1">
-									<div class="row">
-										<div class="col-6 p-0">
-											<button type=button id="like${dto.seq}" class="p-0">
-												<img src="imgs/like.png" id="likeImg">
-											</button>
-										</div>
-										<div class="col-6 d-none d-sm-block">${dto.likeCount}</div>
-									</div>
+							<div class="col-4 col-md-2 p-0">
+								<div class="starCon shield">
+									<span class="fa fa-star" id="star1t${dto.seq}"
+										onclick="addt${dto.seq}(this,1)"></span> <span
+										class="fa fa-star" id="star2t${dto.seq}"
+										onclick="addt${dto.seq}(this,2)"></span> <span
+										class="fa fa-star" id="star3t${dto.seq}"
+										onclick="addt${dto.seq}(this,3)"></span> <span
+										class="fa fa-star" id="star4t${dto.seq}"
+										onclick="addt${dto.seq}(this,4)"></span> <span
+										class="fa fa-star" id="star5t${dto.seq}"
+										onclick="addt${dto.seq}(this,5)"></span>
 								</div>
 							</div>
-							<c:choose>
-								<c:when test="${loginInfo == dto.writer}">
-									<div class="row collapse" id="collapse${dto.seq}">
-										<div class="col-12 card card-body">
-											${dto.content}<br>
-											<button type=button id=remove${dto.seq}>삭제</button>
-										</div>
+							<div class="col-6 col-sm-5 col-md-4 col-lg-5">
+								<p class="m-0">
+									<button class="btn btn-secondary" type="button"
+										data-toggle="collapse" data-target="#collapse${dto.seq}"
+										aria-expanded="false" aria-controls="collapseExample">
+										${dto.title}</button>
+								</p>
+							</div>
+							<div class="col-3 col-md-2 d-none d-md-block">${dto.formedDate}</div>
+							<div class="col-2 d-none d-md-block">${dto.writer}</div>
+							<div class="col-1 col-sm-2 col-lg-1">
+								<div class="row">
+									<div class="col-6 p-0">
+										<button type=button id="like${dto.seq}" class="p-0">
+											<img src="imgs/like.png" id="likeImg">
+										</button>
 									</div>
-									<script>
+									<div class="col-6 d-none d-sm-block">${dto.likeCount}</div>
+								</div>
+							</div>
+						</div>
+						<c:choose>
+							<c:when test="${loginInfo == dto.writer}">
+								<div class="row collapse" id="collapse${dto.seq}">
+									<div class="col-12 card card-body">
+										${dto.content}<br>
+										<button type=button id=remove${dto.seq}>삭제</button>
+									</div>
+								</div>
+								<script>
 							$("#remove${dto.seq}").on("click",function(){
 							var result = confirm("정말 삭제하시겠습니까?");
 							if(result){
@@ -540,15 +489,15 @@ red
 							}
 							})
 							</script>
-								</c:when>
-								<c:otherwise>
-									<div class="row collapse" id="collapse${dto.seq}">
-										<div class="col-12 card card-body">${dto.content}</div>
-									</div>
-								</c:otherwise>
-							</c:choose>
+							</c:when>
+							<c:otherwise>
+								<div class="row collapse" id="collapse${dto.seq}">
+									<div class="col-12 card card-body">${dto.content}</div>
+								</div>
+							</c:otherwise>
+						</c:choose>
 
-							<script>
+						<script>
 
 			//별점 - 출력
              var point = ${dto.score};
@@ -576,59 +525,59 @@ red
      		}); 
              
 			</script>
-						</c:forEach>
+					</c:forEach>
 
-					</c:otherwise>
-				</c:choose>
+				</c:otherwise>
+			</c:choose>
 
-				<!-- 여기 후기 쓰는 부분은 로그인 정보 있어야 뜸 -->
-				<c:choose>
-					<c:when test="${loginInfo != null }">
+			<!-- 여기 후기 쓰는 부분은 로그인 정보 있어야 뜸 -->
+			<c:choose>
+				<c:when test="${loginInfo != null }">
 
+					<div class=row>
+						<div class="col-12 center">${navi}</div>
+					</div>
+
+					<hr>
+					<form
+						action="${pageContext.request.contextPath}/reviewWrite.re?seq=${contents.seq}"
+						method="post" id=reviewSave>
 						<div class=row>
-							<div class="col-12 center">${navi}</div>
-						</div>
+							<div class=col-12 id=ssss>
+								<h2>후기 남기기</h2>
+								제목 : <input type="text" id=titleReview name=title>
+								<div>&nbsp;</div>
 
-						<hr>
-						<form
-							action="${pageContext.request.contextPath}/reviewWrite.re?seq=${contents.seq}"
-							method="post" id=reviewSave>
-							<div class=row>
-								<div class=col-12 id=ssss>
-									<h2>후기 남기기</h2>
-									제목 : <input type="text" id=titleReview name=title>
-									<div>&nbsp;</div>
-
-									<div id=sss>
-										별점 :
-										<div id=starInputCon>
-											<span class="fa fa-star" id="star1" onclick="add(this,1)"></span>
-											<span class="fa fa-star" id="star2" onclick="add(this,2)"></span>
-											<span class="fa fa-star" id="star3" onclick="add(this,3)"></span>
-											<span class="fa fa-star" id="star4" onclick="add(this,4)"></span>
-											<span class="fa fa-star" id="star5" onclick="add(this,5)"></span>
-											<input type="hidden" id="rating" value="1" name="rating">
-										</div>
+								<div id=sss>
+									별점 :
+									<div id=starInputCon>
+										<span class="fa fa-star" id="star1" onclick="add(this,1)"></span>
+										<span class="fa fa-star" id="star2" onclick="add(this,2)"></span>
+										<span class="fa fa-star" id="star3" onclick="add(this,3)"></span>
+										<span class="fa fa-star" id="star4" onclick="add(this,4)"></span>
+										<span class="fa fa-star" id="star5" onclick="add(this,5)"></span>
+										<input type="hidden" id="rating" value="1" name="rating">
 									</div>
-									<br>
+								</div>
+								<br>
 
-								</div>
 							</div>
-							<div class=row>
-								<div class="col-12 center">
-									<textarea id="summernote"></textarea>
-									<br>
-									<textarea id=snInput class=noneExist name=content></textarea>
-									<button id=reviewSaveBtn type=button>후기 등록</button>
-								</div>
+						</div>
+						<div class=row>
+							<div class="col-12 center">
+								<textarea id="summernote"></textarea>
+								<br>
+								<textarea id=snInput class=noneExist name=content></textarea>
+								<button id=reviewSaveBtn type=button>후기 등록</button>
 							</div>
-						</form>
-					</c:when>
-				</c:choose>
-			</div>
+						</div>
+					</form>
+				</c:when>
+			</c:choose>
 		</div>
-		<!--    -->
-		<div class="col d-none d-sm-block"></div>
+	</div>
+	<!--    -->
+	<div class="col d-none d-sm-block"></div>
 	<jsp:include page="../standard/footer.jsp" />
 	</div>
 
@@ -724,9 +673,7 @@ red
         //4. 정보수정제안
         $("#btnModify").on("click", function(){
         	location.href="${pageContext.request.contextPath}/member/mypageOneByOne.jsp";
-        })
-		
+        });
 	</script>
-
 </body>
 </html>
