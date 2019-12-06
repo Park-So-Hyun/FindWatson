@@ -27,6 +27,7 @@ min-height:500px;
 .btns {
 text-align:right;
 }
+#boardContent>p>img{width:100%;}
 #boardTitle{
 border-top: 1px solid #084480;
 

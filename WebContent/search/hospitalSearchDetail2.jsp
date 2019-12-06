@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>찾아줘 왓슨!</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
@@ -151,59 +151,7 @@ hr {
 #btnModify {
 	margin-left: 1px;
 }
-
-#page
-
-
-
- 
-
-
-
-${
-cpage
-
-
-
-
-	
-
-
-
-
-}
-{
-color
-
-
-
-
- 
-
-
-
-
-:
-
-
-
-
- 
-
-
-
-
-red
-
-
-
-
-
-
-
-
-;
-}
+#page${cpage}{color:red;}
 .checked {
 	color: orange;
 }
@@ -283,19 +231,18 @@ red
 .range:hover {
 	font-weight: 700;
 }
+#reviewContent>p>img{width:100%;}
 </style>
 
 </head>
 <body>
-
-
 	<!-- container -->
 	<div class="container col-12">
 		<!-- 헤더 -->
 		<jsp:include page="../standard/header.jsp" />
 		<div class="col d-none d-sm-block"></div>
 		<div class="row">
-			<div class=container>
+			<div class="container col-12 col-sm-6">
 				<!-- 중심내용 -->
 				<div class="row">
 					<div class="col-12">
@@ -311,13 +258,13 @@ red
 				</div>
 
 				<div class=row>
-					<div class="col-12  col-md-3 col-lg-5 col-xl-6">
-						<img src="${contents.img}" class="rounded mx-auto d-block"
-							style="border-radius: 10px;" width="300px" height="300px">
-					</div>
-
-					<div class="col-12  col-md-9 col-lg-7 col-xl-6">
-
+					<div class="col-12">
+						<div class="row">
+							<div class="col-12 col-sm-6">
+								<img src="${contents.img}" class="rounded mx-auto d-block"
+								style="border-radius: 10px; width:100%; height:300px;" >
+							</div>
+							<div class="col-12 col-sm-6">
 						<%-- 작은 화면일 경우  --%>
 						<div class="row hosIn1 d-block d-sm-none" id=info_small>
 							<div class=col-12>
@@ -328,9 +275,9 @@ red
 									<label class="title d-none d-md-block">병원 이름</label> <a
 										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶ &nbsp; </a>${contents.hosptName}</div>
 								<div class="row info">
-									<label class="title d-none d-md-block">주소</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; &nbsp; ▶&nbsp;</a>${contents.address1}
-									${contents.address2}
+									<label class="title d-none d-md-block">주소</label> 
+									<div class="col-12"><a class="d-inline d-md-none">&nbsp;▶&nbsp;</a>${contents.address1}</div>
+									<div class="col-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${contents.address2}</div>
 								</div>
 								<div class="row info">
 									<label class="title d-none d-md-block">전화번호</label> <a
@@ -360,10 +307,9 @@ red
 								<div class="row info">
 									<label class="title d-none d-md-block">병원 이름</label> <a
 										class="d-block d-md-none">&nbsp; &nbsp; ▶ &nbsp; </a>${contents.hosptName}</div>
-								<div class="row info">
-									<label class="title d-none d-md-block">주소</label> <a
-										class="d-block d-md-none">&nbsp; &nbsp; ▶&nbsp;</a>${contents.address1}
-									${contents.address2}
+								<div class="row info mb-1">
+									<label class="title d-none d-md-block mb-0">주소</label>
+									&nbsp;&nbsp;&nbsp;${contents.address1}${contents.address2}
 								</div>
 								<div class="row info">
 									<label class="title d-none d-md-block">전화번호</label> <a
@@ -383,9 +329,10 @@ red
 							</div>
 						</div>
 
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
 
 
 			<%--지도, 후기--%>
@@ -426,7 +373,6 @@ red
 				</div>
 			</div>
 
-
 			<c:choose>
 				<c:when test="${reviewList.size() == 0}">
 					<div class=row>
@@ -437,8 +383,8 @@ red
 				<c:otherwise>
 					<c:forEach items="${reviewList}" var="dto">
 						<%-------------------------------------------------------------------------------------------------- --%>
-						<div class=row>
-							<div class="col-4 col-md-2 p-0">
+						<div class="row mb-1">
+							<div class="col-4 col-md-2">
 								<div class="starCon shield">
 									<span class="fa fa-star" id="star1t${dto.seq}"
 										onclick="addt${dto.seq}(this,1)"></span> <span
@@ -454,7 +400,7 @@ red
 							</div>
 							<div class="col-6 col-sm-5 col-md-4 col-lg-5">
 								<p class="m-0">
-									<button class="btn btn-secondary" type="button"
+									<button class="btn btn-sm btn-outline-secondary" type="button"
 										data-toggle="collapse" data-target="#collapse${dto.seq}"
 										aria-expanded="false" aria-controls="collapseExample">
 										${dto.title}</button>
@@ -475,10 +421,10 @@ red
 						</div>
 						<c:choose>
 							<c:when test="${loginInfo == dto.writer}">
-								<div class="row collapse" id="collapse${dto.seq}">
-									<div class="col-12 card card-body">
+								<div class="row collapse mt-1" id="collapse${dto.seq}">
+									<div id="reviewContent" class="col-12 card card-body">
 										${dto.content}<br>
-										<button type=button id=remove${dto.seq}>삭제</button>
+										<button type=button class="btn btn-sm btn-outline-secondary" id=remove${dto.seq}>삭제</button>
 									</div>
 								</div>
 								<script>
@@ -502,7 +448,6 @@ red
 			//별점 - 출력
              var point = ${dto.score};
              $("#star"+point+"t${dto.seq}").trigger("click");
-			
              function addt${dto.seq}(ths,sno){
                  for (var i=1;i<=5;i++){
                      var cur=document.getElementById("star"+i+"t" + "${dto.seq}");
@@ -545,10 +490,15 @@ red
 						<div class=row>
 							<div class=col-12 id=ssss>
 								<h2>후기 남기기</h2>
-								제목 : <input type="text" id=titleReview name=title>
-								<div>&nbsp;</div>
-
-								<div id=sss>
+								<div class="row mb-1">
+									<div class="col-2 text-center align-self-center">
+										<span>제목 :</span>
+									</div>
+									<div class="col-10">
+										<input type="text" class="form-control space" id=titleReview name=title style="width:100%;">
+									</div>
+								</div>
+								<div id=sss class="mb-1">
 									별점 :
 									<div id=starInputCon>
 										<span class="fa fa-star" id="star1" onclick="add(this,1)"></span>
@@ -560,25 +510,24 @@ red
 									</div>
 								</div>
 								<br>
-
 							</div>
 						</div>
-						<div class=row>
+						<div class="row">
 							<div class="col-12 center">
 								<textarea id="summernote"></textarea>
 								<br>
 								<textarea id=snInput class=noneExist name=content></textarea>
-								<button id=reviewSaveBtn type=button>후기 등록</button>
+								<button id=reviewSaveBtn class="btn btn-sm btn-outline-secondary mb-3" type=button>후기 등록</button>
 							</div>
 						</div>
 					</form>
 				</c:when>
 			</c:choose>
-		</div>
-	</div>
+			</div>
+			</div>
 	<!--    -->
-	<div class="col d-none d-sm-block"></div>
-	<jsp:include page="../standard/footer.jsp" />
+		<div class="col d-none d-sm-block"></div>
+		<jsp:include page="../standard/footer.jsp" />
 	</div>
 
 
@@ -610,7 +559,8 @@ red
 
 		//썸머노트 이미지 업로드
 		$("#summernote").summernote({
-			height : 600,
+			height : 400,
+			disableResizeEditor : true,
 			tabsize: 2,
 			callbacks : {
 				onImageUpload : function(files) {
