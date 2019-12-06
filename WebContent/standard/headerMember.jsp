@@ -25,13 +25,13 @@
 <div class="row">
    <div class="col d-none d-sm-block"></div>
     <div id="title" class="col-12 col-sm-6 p-0 mt-3 mb-3 text-center">
-        <a href="${pageContext.request.contextPath}/toMain.main"><strong>FIND! WATSON</strong></a>
+        <a href="${pageContext.request.contextPath}/toMain.main" class="header_title">FIND! WATSON</a>
     </div>
     <div class="col d-none d-sm-block"></div>
 </div>
 <div class="row bg-light">
-   <div class="col d-none d-sm-block"></div>
-    <div id="navi" class="col-12 col-sm-6 p-1">
+   <div class="col d-none d-sm-block navibar"></div>
+    <div id="navi" class="col-12 col-sm-6 p-0">
         <nav class="p-0 navbar navbar-expand-sm navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -71,7 +71,7 @@
             </div>
         </nav>
     </div>
-    <div class="col d-none d-sm-block"></div>
+    <div class="col d-none d-sm-block navibar"></div>
 </div>
 
 <script>
