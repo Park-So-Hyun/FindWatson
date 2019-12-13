@@ -26,18 +26,16 @@ import findwatson.member.dto.MemberDTO;
 
 @WebServlet("*.member")
 public class memberController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
+		
 		String URI = request.getRequestURI(); 
 		String ctxpath = request.getContextPath(); 
 		String path = URI.substring(ctxpath.length()); 
 		String ipAddr = request.getRemoteAddr();
-		System.out.println(path);
 
 		MemberDAO dao = MemberDAO.getInstance();
 		AdminDAO adminDao = AdminDAO.getInstance();

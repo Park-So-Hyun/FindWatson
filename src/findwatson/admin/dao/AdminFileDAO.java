@@ -9,19 +9,12 @@ import java.util.List;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import findwatson.admin.dto.AdminFileDTO;
+import findwatson.utils.Statics;
 
 
 public class AdminFileDAO {
 	private static AdminFileDAO instance;
-	private BasicDataSource bds = new BasicDataSource();
-	//DBCP
-	private AdminFileDAO () {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	private AdminFileDAO () {}
 	public synchronized static AdminFileDAO getInstance() {
 		if(instance == null){									
 			instance = new AdminFileDAO();
@@ -30,7 +23,7 @@ public class AdminFileDAO {
 	}
 	//Connection
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 	
 	//파일 업로드 expert

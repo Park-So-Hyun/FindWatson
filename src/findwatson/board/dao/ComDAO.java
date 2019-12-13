@@ -11,19 +11,13 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import findwatson.board.dto.ComDTO;
 import findwatson.configuration.Configuration;
+import findwatson.utils.Statics;
 
 public class ComDAO {
 	private static ComDAO instance;
-	private BasicDataSource bds = new BasicDataSource();
-	private ComDAO() {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	private ComDAO() {}
 	private Connection getConnetion() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}	
 	public synchronized static ComDAO getInstance() {
 		if(instance == null) {

@@ -15,18 +15,11 @@ import findwatson.admin.dto.HListDTO;
 import findwatson.admin.dto.NoticeDTO;
 import findwatson.board.dto.BoardDTO;
 import findwatson.configuration.Configuration;
+import findwatson.utils.Statics;
 
 public class ManagerDAO {
 	private static ManagerDAO instance;
-	private BasicDataSource bds = new BasicDataSource();
-	//DBCP
-	private ManagerDAO () {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	private ManagerDAO () {}
 	public synchronized static ManagerDAO getInstance() {
 		if(instance == null){									
 			instance = new ManagerDAO();
@@ -35,7 +28,7 @@ public class ManagerDAO {
 	}
 	//Connection
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 	
 	// 병원 상세 정보

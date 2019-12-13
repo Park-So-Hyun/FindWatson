@@ -11,18 +11,12 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import findwatson.admin.dto.HListDTO;
 import findwatson.configuration.Configuration;
+import findwatson.utils.Statics;
 
 
 public class HospitalListDAO {
 	private static HospitalListDAO instance;
-	private BasicDataSource bds = new BasicDataSource();
-	private HospitalListDAO() {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	private HospitalListDAO() {}
 
 	public synchronized static HospitalListDAO getInstance() {
 		if(instance == null) {
@@ -32,7 +26,7 @@ public class HospitalListDAO {
 	}
 
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 
 

@@ -10,19 +10,13 @@ import java.util.List;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import findwatson.board.dto.FilesDTO;
+import findwatson.utils.Statics;
 
 public class FilesDAO {
    private static FilesDAO instance;
-   private BasicDataSource bds = new BasicDataSource();
-   private FilesDAO() {
-      bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-      bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-      bds.setUsername("watson");
-      bds.setPassword("watson");
-      bds.setInitialSize(30);
-   }
+   private FilesDAO() {}
    private Connection getConnetion() throws Exception{
-      return bds.getConnection();
+      return Statics.bds.getConnection();
    }   
    public synchronized static FilesDAO getInstance() {
       if(instance == null) {

@@ -9,20 +9,14 @@ import java.util.List;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import findwatson.donate.dto.DonateDTO;
+import findwatson.utils.Statics;
 
 
 public class DonateDAO {
 	private static DonateDAO instance;
-	private BasicDataSource bds = new BasicDataSource();
-	private DonateDAO() {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	private DonateDAO() {}
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 	public synchronized static DonateDAO getInstance() {
 		if(instance == null) {

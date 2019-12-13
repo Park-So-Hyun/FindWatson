@@ -6,22 +6,16 @@ import java.sql.PreparedStatement;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import findwatson.review.dto.ReviewFileDTO;
+import findwatson.utils.Statics;
 
 public class ReviewFileDAO {
 
-	private BasicDataSource bds = new BasicDataSource();
 	private static ReviewFileDAO instance;
 	
-	ReviewFileDAO(){
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(10);
-	}
+	private ReviewFileDAO(){}
 	
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 	public synchronized static ReviewFileDAO getInstance() {
 		if(instance == null) {

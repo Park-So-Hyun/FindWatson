@@ -11,22 +11,14 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 import findwatson.configuration.Configuration;
 import findwatson.review.dto.ReviewDTO;
+import findwatson.utils.Statics;
 
 public class ReviewDAO {
 	
-	private BasicDataSource bds = new BasicDataSource();
-	private static ReviewDAO instance;
-	
-	ReviewDAO(){
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(10);
-	}
-	
+	private static ReviewDAO instance;	
+	private ReviewDAO(){}	
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 	public synchronized static ReviewDAO getInstance() {
 		if(instance == null) {

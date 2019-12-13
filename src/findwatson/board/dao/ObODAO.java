@@ -12,21 +12,15 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import findwatson.admin.dto.BanDTO;
 import findwatson.board.dto.ObODTO;
 import findwatson.configuration.Configuration;
+import findwatson.utils.Statics;
 
 public class ObODAO {
 	private static ObODAO instance;
-	private BasicDataSource bds = new BasicDataSource();
 
-	private ObODAO() {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	private ObODAO() {}
 
 	private Connection getConnection() throws Exception {
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 
 	public synchronized static ObODAO getInstance() {

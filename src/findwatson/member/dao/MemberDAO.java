@@ -4,23 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-
 import findwatson.admin.utils.Util;
 import findwatson.member.dto.MemberDTO;
+import findwatson.utils.Statics;
 
 public class MemberDAO {
-	private BasicDataSource bds = new BasicDataSource();
 	private static MemberDAO instance = new MemberDAO();
-
-
-	public MemberDAO() {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	public MemberDAO() {}
 
 	public synchronized static MemberDAO getInstance() {
 		if(instance == null) {
@@ -30,12 +20,12 @@ public class MemberDAO {
 	}
 
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 
 	public boolean loginOk(String id, String pw) throws Exception{
 		String sql = "select * from member where id=? and pw=?";
-		try(Connection con = bds.getConnection();
+		try(	Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
 			pstat.setString(1, id);
@@ -52,7 +42,8 @@ public class MemberDAO {
 	}
 	public boolean idCheck(String id) throws Exception {
 		String sql = "select * from member where id=?";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
 			pstat.setString(1, id);
@@ -68,7 +59,8 @@ public class MemberDAO {
 	}
 	public int insert(MemberDTO dto)throws Exception{
 		String sql = "insert into member values (?,?,?,?,?,?,?,?,?,?,?,?,sysdate,'로그인x')";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
 			pstat.setString(1,dto.getId());
 			pstat.setString(2, Util.encrypt(dto.getPw()));
@@ -89,7 +81,8 @@ public class MemberDAO {
 	}
 	public int delete(String id) throws Exception{
 		String sql = "delete from member where id=?";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
 			pstat.setString(1, id);
 			int result = pstat.executeUpdate();
@@ -99,7 +92,8 @@ public class MemberDAO {
 	}
 	public MemberDTO selectMyInfo(String id)throws Exception{
 		String sql = "select * from member where id=?";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 				){
 			pstat.setString(1, id);
@@ -128,7 +122,8 @@ public class MemberDAO {
 	(String pw, String name, String birth, String gender, String email, String phone, String postcode, String address1, String address2, 
 			String lovePet, String id)throws Exception {
 		String sql = "update member set pw=?,name=?, birth=?, gender=?, email=?, phone=?, postcode=?, address1=?, address2=?, lovePet=? where id=?";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
 
 			pstat.setString(1,Util.encrypt(pw));
@@ -197,7 +192,8 @@ public class MemberDAO {
 	//id찾기
 	public boolean idFind(String name, String birth, String email, int phone) throws Exception{
 		String sql = "select id from member where name=? and birth=? and email=? and phone=?";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
 			pstat.setString(1, name);
 			pstat.setString(2, birth);
@@ -214,7 +210,8 @@ public class MemberDAO {
 	}//id찾기-id가지고오기
 	public String idFindGet(String name, String birth, String email, int phone) throws Exception{
 		String sql = "select id from member where name=? and birth=? and email=? and phone=?";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
 			pstat.setString(1, name);
 			pstat.setString(2, birth);
@@ -231,7 +228,8 @@ public class MemberDAO {
 	//비밀번호찾기
 	public boolean pwFind(String name, String id, String birth, String email, int phone)throws Exception{
 		String sql = "select pw from member where name=? and id=? and birth=? and email=? and phone=?";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
 			pstat.setString(1, name);
 			pstat.setString(2 ,id);
@@ -247,7 +245,8 @@ public class MemberDAO {
 	//비밀번호찾기-pw가지고오기
 	public int pwFindGet(String id, String pw)throws Exception{
 		String sql = "update member set pw=? where id=?";
-		try(Connection con = bds.getConnection();
+		try(
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
 			pstat.setString(1 ,Util.encrypt(pw));
 			pstat.setString(2, id);

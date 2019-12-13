@@ -14,20 +14,14 @@ import findwatson.admin.dto.ExpertDTO;
 import findwatson.admin.dto.NoticeDTO;
 import findwatson.board.dto.BoardDTO;
 import findwatson.configuration.Configuration;
+import findwatson.utils.Statics;
 
 public class BoardDAO {
 
 	private static BoardDAO instance;
-	private BasicDataSource bds = new BasicDataSource();
-	private BoardDAO() {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	private BoardDAO() {}
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}	
 	public synchronized static BoardDAO getInstance() {
 		if(BoardDAO.instance == null) {

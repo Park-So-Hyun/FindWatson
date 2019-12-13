@@ -20,18 +20,11 @@ import findwatson.board.dto.ObODTO;
 import findwatson.configuration.Configuration;
 import findwatson.member.dto.MemberDTO;
 import findwatson.review.dto.ReviewDTO;
+import findwatson.utils.Statics;
 
 public class AdminDAO {
 	private static AdminDAO instance;
-	private BasicDataSource bds = new BasicDataSource();
-	//DBCP
-	private AdminDAO () {
-		bds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		bds.setUsername("watson");
-		bds.setPassword("watson");
-		bds.setInitialSize(30);
-	}
+	private AdminDAO () {}
 	public synchronized static AdminDAO getInstance() {
 		if(instance == null){									
 			instance = new AdminDAO();
@@ -40,7 +33,7 @@ public class AdminDAO {
 	}
 	//Connection
 	private Connection getConnection() throws Exception{
-		return bds.getConnection();
+		return Statics.bds.getConnection();
 	}
 	//관리자 로그인
 	public boolean adminLogin(String id,String pw) throws Exception{
